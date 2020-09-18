@@ -110,6 +110,9 @@ class MyTeam extends Component {
   console.log(currentUser[0])
     return (
       <div>
+          <Button variant="success" size="lg" block>
+                    My Team
+                </Button>
            <Table striped bordered hover size="sm">
                     <thead>
                         <tr>

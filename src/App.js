@@ -10,6 +10,7 @@ import Predict from './components/pages/Predict';
 import UserPredictions from './components/pages/UserPredictions';
 import DashBoard from './components/pages/Dashboard';
 import MyTeam from './components/pages/MyTeam';
+import DailyPlayerScores from './components/pages/DailyPlayerScores'
 
 import './App.css';
 
@@ -42,6 +43,7 @@ class App extends Component {
               <SecureRoute path="/predict" exact={true} component={Predict} />
               <SecureRoute path="/predictions" exact={true} component={UserPredictions} />
               <SecureRoute path="/myTeam" exact={true} component={MyTeam} />
+              <SecureRoute path="/playerPoints" exact={true} component={DailyPlayerScores} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
             </div>
           </div>

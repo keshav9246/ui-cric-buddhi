@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+
 
 
 class Dashboard extends Component {
@@ -114,6 +116,13 @@ getCurrentUser =  ()=> {
 
         let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions);
         let result = await response.json();
+        result.map((element,index) => {
+            console.log(element.userName)
+            if(element.userName === this.state.currentUserName){
+                   this.setState({dream18Rank:index+1}) 
+            }
+
+        })
         console.log(result)
         this.setState({
             fantasyPointsTable: result
@@ -140,11 +149,13 @@ getCurrentUser =  ()=> {
         let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
-            if(element.userName === this.state.currentUserEmail){
+            console.log(element.userName)
+            if(element.userName === this.state.currentUserName){
                    this.setState({predictionRank:index+1}) 
             }
+
         })
-        console.log(result)
+        console.log(this.state.predictionRank)
         this.setState({
             predictionPointsTable: result
         })
@@ -153,9 +164,9 @@ getCurrentUser =  ()=> {
 
 
   render() {
-    const { currentUserEmail, allUsers, currentUser,predictionPointsTable,fantasyPointsTable } = this.state;
+    const { currentUserEmail, allUsers, currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream18Rank } = this.state;
 
-    console.log(predictionPointsTable)    
+    console.log(dream18Rank)    
     return ( <div>
         <Container>
             <Row>
@@ -171,9 +182,20 @@ getCurrentUser =  ()=> {
                     <Card.Header>Your Prediction standings</Card.Header>
                     <Card.Body>
                     <Card.Title>Points and Rank</Card.Title>
+                        
                     <h1>
-                        <Badge variant="light">{element.predictionScore}</Badge>
+                    <Row>
+                        <Col>
+                            <Badge variant="light">{element.predictionScore}</Badge> 
+                        </Col>
+                        <Col>
+                            <Badge variant="light">{predictionRank}</Badge>
+                        </Col>
+                    </Row>
                     </h1>
+
+
+                    
                     </Card.Body>
                     </Card>
                 </Col>
@@ -191,15 +213,29 @@ getCurrentUser =  ()=> {
                     <Card.Body>
                     <Card.Title>Points and Rank</Card.Title>
                     <h1>
-                        <Badge variant="light">{element.dream18Score}</Badge>
+                    <Row>
+                        <Col>
+                            <Badge variant="light">{element.dream18Score}</Badge> 
+                        </Col>
+                        <Col>
+                            <Badge variant="light">{dream18Rank}</Badge>
+                        </Col>
+                    </Row>
                     </h1>
                     </Card.Body>
                     </Card>
                 </Col>
             })}
             </Row>
+            </Container>
+            <Container>
+
             <Row>
                 <Col>
+                <Button variant="success" size="lg" block>
+                    Daily Predictions Points Table
+                </Button>
+                
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -221,6 +257,9 @@ getCurrentUser =  ()=> {
 
                 </Col> 
                 <Col>
+                <Button variant="warning" size="lg" block>
+                    Dream 18 Points Table
+                </Button>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>

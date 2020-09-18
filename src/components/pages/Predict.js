@@ -169,29 +169,31 @@ fetch(proxyurl+url, requestOptions)
                 </Toast>
                 }
                 
-             {responseData && responseData.map(element => { 
+             {responseData && responseData.map((element,index) => { 
             
-                  return <Col> <Card key={element.gameNum} style={{ width: '18rem' }}>
-                  <Card.Body>
-                  <Card.Title>Game number {element.gameNum}</Card.Title>
-                  <Badge variant="secondary">Predict your winner</Badge>
-                    <Card.Subtitle className="mb-2 text-muted">Predict your winner</Card.Subtitle>
-                    <Card.Title>
-                        {element.team1} vs {element.team2}
-                    </Card.Title>
-                    <Card.Text>
-                        Who will win according to you ? A click on either link would submit your vote ;)
-                    </Card.Text>
-
-                    <React.Fragment>
-                    <Button href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1}</Button> </React.Fragment>
-                    <React.Fragment> <Button href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2}</Button> </React.Fragment>
-                    
-                    {/* <Card.Link href = "#" onClick = {this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1}</Card.Link>
-                    <Card.Link href = "#" onClick = {this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2}</Card.Link>   */}
-                  </Card.Body>
-                </Card>
-                </Col>
+                  return <Col> 
+                          <Card
+                            bg='success'
+                            key={index}
+                            text={'primary' === 'light' ? 'dark' : 'white'}
+                            style={{ width: '18rem' }}
+                            className="mb-2"
+                            >
+                            <Card.Header><h3>{element.team1} vs {element.team2}</h3></Card.Header>
+                            <Card.Body>
+                            <Card.Subtitle>{element.gameDate}</Card.Subtitle>
+                            <Card.Title>Game {element.gameNum} </Card.Title>
+                            <Card.Text>
+                              Enter your votes here  
+                            </Card.Text>
+                            <div>                     
+                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1}</Button>{'      '} </React.Fragment>
+                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2}</Button> </React.Fragment>
+                            </div>
+                            </Card.Body>
+                        </Card>
+                        </Col>
+                
                     })
              }
                </Row>

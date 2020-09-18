@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 
 class UserPredictions extends Component{
@@ -76,7 +77,9 @@ return result
 
 
         return( <div>
-               
+                <Button variant="success" size="lg" block>
+                    Daily Predictions for all Maniacs
+                </Button>
                <Table striped bordered hover size="sm" responsive>
                 <thead>
                     <tr>

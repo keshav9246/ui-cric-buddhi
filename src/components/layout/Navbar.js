@@ -7,7 +7,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Cricket Buffs
+            cricTurf
           </Link>
           <button
             className="navbar-toggler"
@@ -19,21 +19,21 @@ class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Home
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/staff">
                   Staff
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/predict">
                   Predict
@@ -49,6 +49,12 @@ class Navbar extends Component {
                   My Dream Team
               </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/playerPoints">
+                  Daily Player Points
+              </Link>
+              </li>
+          
             </ul>
           </div>
         </div>
