@@ -25,6 +25,11 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/staff">
                   Staff
                 </Link>
@@ -38,6 +43,11 @@ class Navbar extends Component {
                 <Link className="nav-link" to="/predictions">
                   Predictions
                 </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/myTeam">
+                  My Dream Team
+              </Link>
               </li>
             </ul>
           </div>

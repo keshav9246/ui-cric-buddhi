@@ -91,7 +91,7 @@ return result
                     </tr>
                 </thead>
                 <tbody>
-                    {userPredictions && userPredictions.map(element => { 
+                {userPredictions && userPredictions.map(element => { 
                     return <tr key = {element.gameNum+ element.userId}>
                         <td>{element.gameNum}</td>
                         <td>{element.userId}</td>

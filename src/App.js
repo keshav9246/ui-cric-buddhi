@@ -8,6 +8,8 @@ import Staff from './components/pages/Staff';
 import Login from './components/auth/Login';
 import Predict from './components/pages/Predict';
 import UserPredictions from './components/pages/UserPredictions';
+import DashBoard from './components/pages/Dashboard';
+import MyTeam from './components/pages/MyTeam';
 
 import './App.css';
 
@@ -29,6 +31,7 @@ class App extends Component {
             <Navbar />
             <div className="container">
               <Route path="/" exact={true} component={Home} />
+              <SecureRoute path="/dashboard" exact={true} component={DashBoard} />
               <SecureRoute path="/staff" exact={true} component={Staff} />
               <Route
                 path="/login"
@@ -38,6 +41,7 @@ class App extends Component {
               />
               <SecureRoute path="/predict" exact={true} component={Predict} />
               <SecureRoute path="/predictions" exact={true} component={UserPredictions} />
+              <SecureRoute path="/myTeam" exact={true} component={MyTeam} />
               <Route path="/implicit/callback" component={ImplicitCallback} />
             </div>
           </div>
