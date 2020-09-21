@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class Navbar extends Component {
   render() {
@@ -7,7 +10,13 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
+          <Row>
+            <Col xs={6} md={4}>
+              <Image src="cric.ico" rounded />
+            </Col>
+            
             cricTurf
+            </Row>
           </Link>
           <button
             className="navbar-toggler"

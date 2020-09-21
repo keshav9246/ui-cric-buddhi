@@ -46,10 +46,11 @@ class DailyPlayerScores extends Component {
                     <tr>
                     <th>Game #</th>
                     <th>Player name</th>
+                    <th>TOTAL GAME POINTS</th>
                     <th>Runs</th>
                     <th>Balls</th>
                     <th>SR.</th>
-                    <th>Notout</th>
+                    <th>Notout ?</th>
                     <th>Run points</th>
                     <th>Fours points</th>
                     <th>Sixes points</th>
@@ -70,7 +71,6 @@ class DailyPlayerScores extends Component {
                     <th>Stumping points</th>
                     <th>Direct hit points</th>
                     <th>Total Fielding points</th>
-                    <th>TOTAL GAME POINTS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,10 +78,11 @@ class DailyPlayerScores extends Component {
                     return <tr key = {index}>
                         <td>{element.dailyPlayerPointsPK.gameNum}</td>
                         <td>{element.dailyPlayerPointsPK.playerName}</td>
+                        <th>{element.totalGamePoints}</th>
                         <td>{element.runsScored}</td>
                         <td>{element.ballsFaced}</td>
                         <td>{element.strikeRate}</td>
-                        <td>{element.isNotout}</td>
+                        <td>{element.wasNO}</td>
                         <td>{element.runsPoints}</td>
                         <td>{element.foursPoints}</td>
                         <td>{element.sixesPoints}</td>
@@ -102,7 +103,6 @@ class DailyPlayerScores extends Component {
                         <td>{element.stumpingPoints}</td>
                         <td>{element.directHitPoints}</td>
                         <th>{element.fieldingPoints}</th>
-                        <th>{element.totalGamePoints}</th>
                     </tr>       
                 })}
                 </tbody>

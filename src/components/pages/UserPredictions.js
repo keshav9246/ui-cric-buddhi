@@ -84,9 +84,9 @@ return result
                 <thead>
                     <tr>
                     <th>Game number</th>
-                    <th>Maniac name</th>
-                    <th>Team 1</th>
-                    <th>Team 2</th>
+                    <th>Maniac ID</th>
+                    <th>Home team</th>
+                    <th>Away team</th>
                     <th>Your prediction</th>
                     <th>Team Won</th>
                     <th>Max points</th>
@@ -109,8 +109,7 @@ return result
                 </tbody>
                 </Table>
             
-        })
-        }
+        
         </div>
 
     

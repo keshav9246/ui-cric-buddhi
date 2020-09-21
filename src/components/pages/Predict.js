@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Toast from 'react-bootstrap/Toast';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Badge from 'react-bootstrap/Badge';
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -138,7 +137,7 @@ let url = "https://cric-fap.herokuapp.com/v1/iplt20/submitPrediction";
 
 fetch(proxyurl+url, requestOptions)
   .then(response => response.text())
-  .then(() => this.setState({successMessage:"Your prediction was submitted successfully for game"+gameNum, showToast:true}))
+  .then(() => this.setState({successMessage:"Your prediction was submitted successfully for Game-"+gameNum, showToast:true}))
   .catch(error => this.setState({successMessage:"Your prediction was NOT submitted successfully. Error message is "+error, showToast:true}));
   
     }
@@ -159,14 +158,17 @@ fetch(proxyurl+url, requestOptions)
               <Row>
             
                 {showToast && 
-                <Toast delay={2000} autohide>
-                  <Toast.Header>
-                    <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-                    <strong className="mr-auto">Success Message</strong>
-                    <small>11 mins ago</small>
-                  </Toast.Header>
-                 <Toast.Body>{successMessage}</Toast.Body>
-                </Toast>
+                <Alert variant='success'>
+                        {successMessage}
+                </Alert>
+                // <Toast delay={2000} autohide>
+                //   <Toast.Header>
+                //     <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                //     <strong className="mr-auto">Success Message</strong>
+                //     <small>11 mins ago</small>
+                //   </Toast.Header>
+                //  <Toast.Body>{successMessage}</Toast.Body>
+                // </Toast>
                 }
                 
              {responseData && responseData.map((element,index) => { 

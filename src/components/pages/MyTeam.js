@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Toast from 'react-bootstrap/Toast';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 
 
@@ -83,7 +78,7 @@ class MyTeam extends Component {
 //     //     console.log(result)
 //   }
 
-  getCurrentUser =  ()=> {
+  getCurrentUser =  () => {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     var requestOptions = {
         method: 'GET',
@@ -126,7 +121,7 @@ class MyTeam extends Component {
                     <tbody>
                     {currentUser && currentUser[0] && currentUser[0].mainTeam.map((element,index) => { 
                     return <tr key = {index}>
-                        <td>{index}</td>
+                        <td>{index+1}</td>
                         <td>{element.player_name}</td>
                         <td>{element.team}</td>
                         <td>{element.playerRole}</td>

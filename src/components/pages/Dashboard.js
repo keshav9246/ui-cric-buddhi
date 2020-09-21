@@ -87,7 +87,7 @@ getCurrentUser =  ()=> {
       console.log(userId);
        fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
         .then(response => response.text())
-        .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({currentUser: result})})
+        .then(result => {result = JSON.parse(result); console.log(result); this.setState({currentUser: result})})
         .catch(error => console.log('error', error));
     // let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions);
     //     let result = await response.json();
@@ -117,7 +117,6 @@ getCurrentUser =  ()=> {
         let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
-            console.log(element.userName)
             if(element.userName === this.state.currentUserName){
                    this.setState({dream18Rank:index+1}) 
             }
@@ -149,7 +148,6 @@ getCurrentUser =  ()=> {
         let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
-            console.log(element.userName)
             if(element.userName === this.state.currentUserName){
                    this.setState({predictionRank:index+1}) 
             }
@@ -166,7 +164,7 @@ getCurrentUser =  ()=> {
   render() {
     const { currentUserEmail, allUsers, currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream18Rank } = this.state;
 
-    console.log(dream18Rank)    
+    console.log(typeof currentUser)    
     return ( <div>
         <Container>
             <Row>
@@ -271,7 +269,7 @@ getCurrentUser =  ()=> {
                     <tbody>
                     {fantasyPointsTable && fantasyPointsTable.map((element,index) => { 
                     return <tr>
-                        <td>{index}</td>
+                        <td>{index+1}</td>
                         <td>{element.userName}</td>
                         <td>{element.points}</td>
                         </tr>
