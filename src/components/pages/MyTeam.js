@@ -119,7 +119,7 @@ class MyTeam extends Component {
                     My Main Team
                 </Button>
            <Table striped bordered hover size="sm">
-                    <thead style = {overflow=fixed}>
+                    <thead>
                         <tr>
                         <th>#</th>
                         <th>Name</th>
