@@ -47,6 +47,7 @@ class DailyPlayerScores extends Component {
                     <th>Game #</th>
                     <th>Player name</th>
                     <th>TOTAL GAME POINTS</th>
+                    <th>Assigned to</th>
                     <th>Runs</th>
                     <th>Balls</th>
                     <th>SR.</th>
@@ -79,6 +80,7 @@ class DailyPlayerScores extends Component {
                         <td>{element.dailyPlayerPointsPK.gameNum}</td>
                         <td>{element.dailyPlayerPointsPK.playerName}</td>
                         <th>{element.totalGamePoints}</th>
+                        <td>{element.assignedTo}</td>
                         <td>{element.runsScored}</td>
                         <td>{element.ballsFaced}</td>
                         <td>{element.strikeRate}</td>
