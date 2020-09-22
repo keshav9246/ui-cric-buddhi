@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+
 
 class MyTeam extends Component {
   state = {
@@ -105,11 +109,17 @@ class MyTeam extends Component {
   console.log(currentUser[0])
     return (
       <div>
+        <Container>
+       
+     
+        </Container>
+        
+        <Row><Col>
           <Button variant="success" size="lg" block>
-                    My Team
+                    My Main Team
                 </Button>
            <Table striped bordered hover size="sm">
-                    <thead>
+                    <thead style = {overflow=fixed}>
                         <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -130,6 +140,52 @@ class MyTeam extends Component {
                     })}
                     </tbody>
                     </Table>
+                    </Col>
+                    </Row>
+
+                    <Row>
+                     <Col>
+
+                    <Button variant="dark" size="lg" block>
+                    Power Player: {currentUser && currentUser[0] && currentUser[0].powerPlayer}
+                </Button>
+                </Col></Row>
+                <Row>
+                     <Col>
+                                        
+                     </Col></Row>
+                   
+                    <Row>
+                     <Col>
+
+                    <Button variant="warning" size="lg" block>
+                    My Backup Team
+                </Button>
+           <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Role</th>
+                        <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {currentUser && currentUser[0] && currentUser[0].backupTeam.map((element,index) => { 
+                    return <tr key = {index}>
+                        <td>{index+1}</td>
+                        <td>{element.player_name}</td>
+                        <td>{element.team}</td>
+                        <td>{element.playerRole}</td>
+                        <td>{element.score}</td>
+                        </tr>
+                    })}
+                    </tbody>
+                    </Table>
+
+                    </Col>
+                    </Row>
        
       </div>
     );
