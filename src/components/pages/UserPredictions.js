@@ -11,13 +11,15 @@ class UserPredictions extends Component{
         };
       
     
-       async componentDidMount(){
+        componentDidMount(){
             const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
-         await this.setState({
+        if(idToken && idToken.idToken && idToken.idToken.claims)
+        {
+          this.setState({
             currentUserEmail: idToken.idToken.claims.email,
-          });
-            this.getUserPredictions(this.state.currentUserEmail);
-          }
+          },()=>{ this.getUserPredictions(this.state.currentUserEmail)});
+        }
+    }
 
     fetchUserPredictions = (userId) => {
         console.log("user id is "+userId)

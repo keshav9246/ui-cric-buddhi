@@ -21,17 +21,25 @@ class Dashboard extends Component {
     dream18Rank:0,
 };
 
-  async componentDidMount() {
+   componentDidMount() {
     const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
-    await this.setState({
-      currentUserEmail: idToken.idToken.claims.email,
-      currentUserName: idToken.idToken.claims.name
-    });
+    if(idToken && idToken.idToken && idToken.idToken.claims)
+    {
+         this.setState({
+            currentUserEmail: idToken.idToken.claims.email,
+            currentUserName: idToken.idToken.claims.name
+        }, ()=> {
+            this.getCurrentUser();
+        });
+       
+    }
 
-    await this.getCurrentUser();
+   
+
+
     //await this.getAllUsers();
-    await this.getFantasyPointsTable();
-    await this.getPredictionPointsTable();
+     this.getFantasyPointsTable();
+     this.getPredictionPointsTable();
 
   }
 

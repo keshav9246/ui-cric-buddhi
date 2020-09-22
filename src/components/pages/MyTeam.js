@@ -14,14 +14,18 @@ class MyTeam extends Component {
     currentUser:[]
   };
 
-  async componentDidMount() {
+   componentDidMount() {
     const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
-    await this.setState({
+    if(idToken && idToken.idToken && idToken.idToken.claims)
+        {
+    this.setState({
       currentUserEmail: idToken.idToken.claims.email,
       currentUserName: idToken.idToken.claims.name
+    },()=>{
+       this.getCurrentUser();
     });
-
-    await this.getCurrentUser();
+  }
+    
   }
 
 //   getGamesToday = async  () => {
@@ -146,7 +150,7 @@ class MyTeam extends Component {
                     <Row>
                      <Col>
 
-                    <Button variant="dark" size="lg" block>
+                    <Button variant="secondary" size="lg" block>
                     Power Player: {currentUser && currentUser[0] && currentUser[0].powerPlayer}
                 </Button>
                 </Col></Row>
