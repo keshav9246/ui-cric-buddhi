@@ -89,7 +89,7 @@ return result
                     <th>Maniac ID</th>
                     <th>Home team</th>
                     <th>Away team</th>
-                    <th>Your prediction</th>
+                    <th>Maniac prediction</th>
                     <th>Team Won</th>
                     <th>Max points</th>
                     <th>Points gained</th>

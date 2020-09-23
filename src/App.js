@@ -12,6 +12,7 @@ import DashBoard from './components/pages/Dashboard';
 import MyTeam from './components/pages/MyTeam';
 import DailyPlayerScores from './components/pages/DailyPlayerScores'
 import Scores from './components/pages/Scores'
+import Teams from './components/pages/Teams'
 
 import './App.css';
 
@@ -43,6 +44,7 @@ class App extends Component {
               />
               <SecureRoute path="/predict" exact={true} component={Predict} />
               <SecureRoute path="/predictions" exact={true} component={UserPredictions} />
+              <SecureRoute path="/teams" exact={true} component={Teams} />
               <SecureRoute path="/myTeam" exact={true} component={MyTeam} />
               <SecureRoute path="/scores" exact={true} component={Scores} />
               <SecureRoute path="/playerPoints" exact={true} component={DailyPlayerScores} />
