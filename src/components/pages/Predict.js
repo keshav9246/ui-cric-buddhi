@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
+import Table from 'react-bootstrap/Table';
 
 
 
@@ -17,17 +18,21 @@ class Predict extends Component {
           responseData: [],
           sucesssMesssage: "nothing",
           currentUserEmail: '',
-          showToast: false
+          showToast: false,
+          allUsers:[]
         };
       }
 
     componentDidMount(){
       const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
+      if(idToken && idToken.idToken && idToken.idToken.claims)
+        {
     this.setState({
       currentUserEmail: idToken.idToken.claims.email,
     });
         this.getGamesToday();
-    }
+        this.getAllUsers();
+    }}
 
     
     // getGamesToday = () => {
@@ -43,6 +48,24 @@ class Predict extends Component {
     //     //            flag = true;
     //     //           })
     //    };
+    getAllUsers = () => {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Access-Control-Allow-Origin", "*");
+  
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  
+      var requestOptions = {
+          method: 'GET',
+          redirect: 'follow',
+          headers: myHeaders
+        };
+        
+        fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/allUsers", requestOptions)
+          .then(response => response.text())
+          .then(result => {result = JSON.parse(result); this.setState({allUsers: result})})
+          .catch(error => console.log('error', error));
+    }
 
     getGamesToday = async  () => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -149,6 +172,7 @@ fetch(proxyurl+url, requestOptions)
             successMessage,
             currentUserEmail,
             showToast,
+            allUsers
           } = this.state;
           console.log(flag)
 
@@ -199,6 +223,42 @@ fetch(proxyurl+url, requestOptions)
                     })
              }
                </Row>
+               <Row>
+                <Col>
+                <Button variant="warning" size="lg" block>
+                    One Time predictions - All
+                </Button>
+                
+                <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                          <th>#</th>
+                        <th>Maniac</th>
+                        <th>Power-player</th>
+                        <th>Orange cap</th>
+                        <th>Purple cap</th>
+                        <th>Top 4</th>
+                        <th>Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {allUsers && allUsers.map((element,index) => { 
+                    return <tr>
+                        <td>{index+1}</td>
+                        <td>{element.userName}</td>
+                        <td>{element.powerPlayer}</td>
+                        <td>{element.orangeCap}</td>
+                        <td>{element.purpleCap}</td>
+                        <td>{element.qualifyingTeams}</td>
+                        <td>{element.winningTeam}</td>
+                        </tr>
+                    })}
+                    </tbody>
+                    </Table>
+                        
+                </Col>
+            </Row>
+
 </Container>
 
                

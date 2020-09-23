@@ -129,6 +129,7 @@ class MyTeam extends Component {
                         <th>Name</th>
                         <th>Team</th>
                         <th>Role</th>
+                        <th>Scores List</th>
                         <th>Points</th>
                         </tr>
                     </thead>
@@ -139,6 +140,7 @@ class MyTeam extends Component {
                         <td>{element.player_name}</td>
                         <td>{element.team}</td>
                         <td>{element.playerRole}</td>
+                        <td>{element.stringOfScores}</td>
                         <td>{element.score}</td>
                         </tr>
                     })}
@@ -172,7 +174,8 @@ class MyTeam extends Component {
                         <th>Name</th>
                         <th>Team</th>
                         <th>Role</th>
-                        <th>Points</th>
+                        <th>Scores list</th>
+                        <th>Total Points</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -182,6 +185,7 @@ class MyTeam extends Component {
                         <td>{element.player_name}</td>
                         <td>{element.team}</td>
                         <td>{element.playerRole}</td>
+                        <td>{element.stringOfScores}</td>
                         <td>{element.score}</td>
                         </tr>
                     })}

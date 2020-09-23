@@ -287,6 +287,11 @@ getCurrentUser =  ()=> {
 
                 </Col> 
             </Row>
+            <Row>
+                <Col>
+                        
+                </Col>
+            </Row>
         </Container>
       </div>
     );
