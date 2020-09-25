@@ -11,13 +11,16 @@ class DailyPlayerScores extends Component {
 
   componentDidMount() {
     const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
+    if(idToken && idToken.idToken && idToken.idToken.claims)
+    {
     this.setState({
       currentUserEmail: idToken.idToken.claims.email,
       currentUserName: idToken.idToken.claims.name
     });
-
-    this.getDailyPlayerPoints();
   }
+    this.getDailyPlayerPoints();
+  
+}
 
   getDailyPlayerPoints = ()=> {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";

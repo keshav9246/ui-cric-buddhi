@@ -178,6 +178,7 @@ getCurrentUser =  ()=> {
             <Row>
             {currentUser && currentUser.map((element,index) => { 
               return  <Col>
+              
                     <Card
                     bg='success'
                     key={index}
@@ -204,10 +205,12 @@ getCurrentUser =  ()=> {
                     
                     </Card.Body>
                     </Card>
+                    
                 </Col>
             })}
                {currentUser && currentUser.map((element,index) => { 
               return  <Col>
+                
                     <Card
                     bg='warning'
                     key={index}
@@ -230,6 +233,8 @@ getCurrentUser =  ()=> {
                     </h1>
                     </Card.Body>
                     </Card>
+                    
+                    
                 </Col>
             })}
             </Row>
@@ -260,6 +265,9 @@ getCurrentUser =  ()=> {
                     })}
                     </tbody>
                     </Table>
+                    <Button variant="success" size="lg" block>
+                    2019 Winners: Tanmay Dave, Akash Dhoot
+                </Button>
 
                 </Col> 
                 <Col>
@@ -284,6 +292,9 @@ getCurrentUser =  ()=> {
                     })}
                     </tbody>
                     </Table>
+                    <Button variant="warning" size="lg" block>
+                    2019 Winners: Keshav Rajput, Swapnil Phatak
+                </Button>
 
                 </Col> 
             </Row>

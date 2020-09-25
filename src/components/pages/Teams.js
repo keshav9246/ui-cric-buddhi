@@ -20,12 +20,20 @@ class Teams extends Component{
     </style>
             
             <Row>
-            <Col xs={8} md={4}>
-            <Button variant="warning" size="xxl" >
+            <Col xs={12} md={12} lg={12}>
+            <Button variant="warning" size="lg" block >
                     Teams - All
                 </Button>
-              <Image src="teamss.png" width="500px"  height="250px"/>
+              
             </Col>
+            </Row>
+            <Row>
+            <Col xs={12} md={12} lg={12}>
+            <Image src="teamss.png" width = "100%"/>
+              
+            </Col>
+
+            
             </Row>
             </div>
        );
