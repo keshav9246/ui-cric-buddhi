@@ -21,7 +21,7 @@ class Teams extends Component{
             
             <Row>
             <Col xs={12} md={12} lg={12}>
-            <Button variant="warning" size="lg" block >
+            <Button variant="success" size="lg" block >
                     Teams - All
                 </Button>
               
@@ -29,7 +29,7 @@ class Teams extends Component{
             </Row>
             <Row>
             <Col xs={12} md={12} lg={12}>
-            <Image src="teamss.png" width = "100%"/>
+            <Image src="teamsss.png" width = "100%"/>
               
             </Col>
 

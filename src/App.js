@@ -14,6 +14,7 @@ import DailyPlayerScores from './components/pages/DailyPlayerScores'
 import Scores from './components/pages/Scores'
 import Teams from './components/pages/Teams'
 import AllPlayers from './components/pages/AllPlayers'
+import Schedule from './components/pages/Schedule'
 
 import './App.css';
 
@@ -48,6 +49,8 @@ class App extends Component {
               <SecureRoute path="/teams" exact={true} component={Teams} />
               <SecureRoute path="/myTeam" exact={true} component={MyTeam} />
               <SecureRoute path="/scores" exact={true} component={Scores} />
+
+              <SecureRoute path="/schedule" exact={true} component={Schedule} />
               <SecureRoute path="/allPlayers" exact={true} component={AllPlayers} />
               <SecureRoute path="/playerPoints" exact={true} component={DailyPlayerScores} />
               <Route path="/implicit/callback" component={ImplicitCallback} />

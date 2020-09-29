@@ -45,7 +45,7 @@ class AllPlayers extends Component{
 
         return( <div>
                 <Button variant="success" size="lg" block>
-                    Daily Predictions for all Maniacs
+                    All Players Ranking
                 </Button>
                <Table striped bordered hover size="sm" responsive>
                 <thead>
@@ -61,7 +61,7 @@ class AllPlayers extends Component{
                 <tbody>
                 {allUsers && allUsers.map((element,idx) => { 
                     return <tr key = {element.player_name}>
-                         <td>{idx}</td>
+                         <td>{idx+1}</td>
                         <td>{element.player_name}</td>
                         <td>{element.team}</td>
                         <td>{element.playerRole}</td>

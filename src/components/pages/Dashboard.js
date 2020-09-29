@@ -243,8 +243,8 @@ getCurrentUser =  ()=> {
 
             <Row>
                 <Col>
-                <Button variant="success" size="lg" block>
-                    2019 Winners: Tanmay Dave, Akash Dhoot
+                <Button variant="dark" size="lg" block>
+                   <h6>2019 Winners: Tanmay Dave, Akash Dhoot</h6> 
                 </Button>
                 <Button variant="success" size="lg" block>
                     Daily Predictions Points Table
@@ -272,8 +272,8 @@ getCurrentUser =  ()=> {
 
                 </Col> 
                 <Col>
-                <Button variant="warning" size="lg" block>
-                    2019 Winners: Keshav Rajput, Swapnil Phatak
+                <Button variant="dark" size="lg" block>
+                   <h6> 2019 Winners: Keshav Rajput, Swapnil Phatak </h6>
                 </Button>
                 <Button variant="warning" size="lg" block>
                     Dream 18 Points Table

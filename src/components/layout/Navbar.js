@@ -45,6 +45,11 @@ class Navbar extends Component {
                 </Link>
               </li> */}
               <li className="nav-item">
+                <Link className="nav-link" to="/schedule">
+                  IPL Schedule
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/predict">
                   Predict
                 </Link>
@@ -64,11 +69,11 @@ class Navbar extends Component {
                   My Dream Team
               </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/scores">
                    Your Player Points
               </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/allPlayers">
                    All Players Rankings
