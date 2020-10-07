@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -167,6 +168,9 @@ getCurrentUser =  ()=> {
 
     return ( <div>
         <Container>
+            <Alert variant="danger">
+                Last day to submit your amount for this game is OCT 10. If not paid, Your dream 18 points wont be considered starting OCT 11. 
+            </Alert>
             <Row>
             {currentUser && currentUser.map((element,index) => { 
               return  <Col>
