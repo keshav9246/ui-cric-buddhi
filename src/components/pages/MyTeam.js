@@ -108,7 +108,7 @@ class MyTeam extends Component {
   }
 
   render() {
-    const { currentUserEmail, currentUser } = this.state;
+    const {currentUser } = this.state;
 
   console.log(currentUser[0])
     return (

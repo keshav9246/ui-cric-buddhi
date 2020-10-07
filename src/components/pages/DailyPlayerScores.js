@@ -37,7 +37,7 @@ class DailyPlayerScores extends Component {
   }
 
   render() {
-    const { currentUserEmail, currentUserName, dailyPlayerScores } = this.state;
+    const { dailyPlayerScores } = this.state;
     console.log(dailyPlayerScores)
     return (
     <div>

@@ -13,7 +13,6 @@ class Dashboard extends Component {
   state = {
     currentUserName: '',
     currentUserEmail: '',
-    allUsers:[],
     currentUser: [],
     fantasyPointsTable: [],
     predictionPointsTable: [],
@@ -33,10 +32,6 @@ class Dashboard extends Component {
         });
        
     }
-
-   
-
-
     //await this.getAllUsers();
      this.getFantasyPointsTable();
      this.getPredictionPointsTable();
@@ -130,7 +125,6 @@ getCurrentUser =  ()=> {
             }
 
         })
-        console.log(result)
         this.setState({
             fantasyPointsTable: result
         })
@@ -161,7 +155,6 @@ getCurrentUser =  ()=> {
             }
 
         })
-        console.log(this.state.predictionRank)
         this.setState({
             predictionPointsTable: result
         })
@@ -170,9 +163,8 @@ getCurrentUser =  ()=> {
 
 
   render() {
-    const { currentUserEmail, allUsers, currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream18Rank } = this.state;
+    const { currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream18Rank } = this.state;
 
-    console.log(typeof currentUser)    
     return ( <div>
         <Container>
             <Row>

@@ -84,6 +84,11 @@ class Navbar extends Component {
                   Daily Player Points
               </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/allocations">
+                  Allocations
+              </Link>
+              </li>
           
             </ul>
           </div>
