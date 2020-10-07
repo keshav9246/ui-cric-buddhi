@@ -61,7 +61,7 @@ class Allocations extends Component{
                     return <tr key = {element.allocationsPK}>
                         <td>{element.allocationsPK.gameNum}</td>
                         <td>{element.allocationsPK.userId}</td>
-                        <td>{element.playerName}</td>
+                        <td>{element.allocationsPK.playerName}</td>
                         <td>{element.points}</td>
                     </tr>       
                 })}
