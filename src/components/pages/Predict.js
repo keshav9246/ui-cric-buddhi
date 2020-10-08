@@ -205,7 +205,8 @@ fetch(proxyurl+url, requestOptions)
                             style={{ width: '18rem' }}
                             className="mb-2"
                             >
-                            <Card.Header><h3>{element.team1} vs {element.team2}</h3></Card.Header>
+                            <Card.Header><h3>{element.team1} vs {element.team2}</h3>
+                            </Card.Header>
                             <Card.Body>
                             <Card.Subtitle>{element.gameDate}</Card.Subtitle>
                             <Card.Title>Game {element.gameNum} </Card.Title>
@@ -213,8 +214,8 @@ fetch(proxyurl+url, requestOptions)
                               Enter your votes here  
                             </Card.Text>
                             <div>                     
-                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1}</Button>{'      '} </React.Fragment>
-                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2}</Button> </React.Fragment>
+                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1} - {element.team1_votes}</Button></React.Fragment>
+                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2} - {element.team2_votes}</Button> </React.Fragment>
                             </div>
                             </Card.Body>
                         </Card>
