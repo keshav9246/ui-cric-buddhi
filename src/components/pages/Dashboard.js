@@ -169,8 +169,8 @@ getCurrentUser =  ()=> {
     return ( <div>
         <Container>
             <Alert variant="danger">
-                Last day to submit your amount for this game is OCT 10. If not paid, Your dream 18 points wont be considered starting OCT 11. 
-            </Alert>
+            All predictions untill 6 pm will be hidden. 
+            If your name appears in the Predictions tab, it means your prediction was submitted. It will appear at 6 pm.       </Alert>
             <Row>
             {currentUser && currentUser.map((element,index) => { 
               return  <Col>
