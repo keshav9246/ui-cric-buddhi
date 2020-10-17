@@ -28,7 +28,7 @@ class Teams extends Component{
             </Row>
             <Row>
             <Col xs={12} md={12} lg={12}>
-            <Image src="teamsss.png" width = "100%"/>
+            <Image src="newteams.png" width = "100%"/>
               
             </Col>
 
