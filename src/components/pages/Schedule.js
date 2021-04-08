@@ -23,14 +23,14 @@ class Schedule extends Component {
 }
 
   getDailyPlayerPoints = ()=> {
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    //const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
     
-    fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/schedule", requestOptions)
+    fetch("https://cric-fap.herokuapp.com/v1/iplt20/schedule", requestOptions)
       .then(response => response.text())
       .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({games: result})})
       .catch(error => console.log('error', error));
@@ -41,7 +41,7 @@ class Schedule extends Component {
     return (
     <div>
         <Button variant="warning" size="lg" block>
-                    IPL 2020 Schedule
+                    IPL 2021 Schedule
                 </Button>
          <Table striped bordered hover size="sm" responsive>
                 <thead>

@@ -30,7 +30,7 @@ class DailyPlayerScores extends Component {
       redirect: 'follow'
     };
     
-    fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/playerPoints", requestOptions)
+    fetch("https://cric-fap.herokuapp.com/v1/iplt20/playerPoints", requestOptions)
       .then(response => response.text())
       .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({dailyPlayerScores: result})})
       .catch(error => console.log('error', error));

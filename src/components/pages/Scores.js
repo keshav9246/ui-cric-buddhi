@@ -26,7 +26,7 @@ class Scores extends Component{
             redirect: 'follow'
           };
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
-          fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/playerScores", requestOptions)
+          fetch("https://cric-fap.herokuapp.com/v1/iplt20/playerScores", requestOptions)
             .then(response => response.text())
             .then(result => { result = JSON.parse(result); this.setState({playerScores: result})})
             .catch(error => console.log('error', error));

@@ -52,7 +52,7 @@ class Dashboard extends Component {
         headers: myHeaders
       };
       
-      fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/allUsers", requestOptions)
+      fetch("https://cric-fap.herokuapp.com/v1/iplt20/allUsers", requestOptions)
         .then(response => response.text())
         .then(result => this.setState({allUsers: result}))
         .catch(error => console.log('error', error));
@@ -61,8 +61,6 @@ class Dashboard extends Component {
 //   getCurrentUser = async ()=> {
 
 //     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
-
 //     var requestOptions = {
 //         method: 'GET',
 //         redirect: 'follow'
@@ -89,7 +87,7 @@ getCurrentUser =  ()=> {
       };
       const userId = this.state.currentUserEmail
       console.log(userId);
-       fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
+       fetch("https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
         .then(response => response.text())
         .then(result => {result = JSON.parse(result); console.log(result); this.setState({currentUser: result})})
         .catch(error => console.log('error', error));
@@ -118,7 +116,7 @@ getCurrentUser =  ()=> {
     //     .then(result => this.setState({fantasyPointsTable: result}))
     //     .catch(error => console.log('error', error));
 
-        let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions);
+        let response = await fetch("https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
             if(element.userName === this.state.currentUserName){
@@ -148,7 +146,7 @@ getCurrentUser =  ()=> {
     //     .then(result => this.setState({predictionPointsTable: result}))
     //     .catch(error => console.log('error', error));
 
-        let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions);
+        let response = await fetch("https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
             if(element.userName === this.state.currentUserName){

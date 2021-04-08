@@ -31,7 +31,7 @@ class UserPredictions extends Component{
           };
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-          fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/getPredictions?userId="+userId, requestOptions)
+          fetch("https://cric-fap.herokuapp.com/v1/iplt20/getPredictions?userId="+userId, requestOptions)
             .then(response => response.text())
             .then((result) => this.setState({
                 userPredictions: result
@@ -52,14 +52,14 @@ class UserPredictions extends Component{
         userId = this.state.currentUserEmail
 
 
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://cric-fap.herokuapp.com/v1/iplt20/getPredictions?userId="+currentUserEmail;
 
         var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 myHeaders.append("Access-Control-Allow-Origin", "*");
 
-let response = await fetch(proxyurl+url);
+let response = await fetch(url);
 let result = await response.json();
 console.log(result)
 this.setState({

@@ -13,7 +13,7 @@ class Navbar extends Component {
           <Link className="navbar-brand" to="/">
           <Row>
             <Col xs={6} md={4}>
-              <Image src="cm.png" roundedCircle height="40px"/>
+              <Image src="ck.png" roundedCircle height="40px"/>
               
             </Col>
             

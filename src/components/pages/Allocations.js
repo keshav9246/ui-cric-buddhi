@@ -28,7 +28,7 @@ class Allocations extends Component{
           
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-          fetch(proxyurl + "https://cric-fap.herokuapp.com/v1/iplt20/allocations", requestOptions)
+          fetch( "https://cric-fap.herokuapp.com/v1/iplt20/allocations", requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
                 allocations: result

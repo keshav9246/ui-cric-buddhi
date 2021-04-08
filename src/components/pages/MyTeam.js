@@ -94,7 +94,7 @@ class MyTeam extends Component {
       };
       const userId = this.state.currentUserEmail
       console.log(userId);
-       fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
+       fetch("https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
         .then(response => response.text())
         .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({currentUser: result})})
         .catch(error => console.log('error', error));
