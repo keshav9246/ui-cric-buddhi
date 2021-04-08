@@ -44,8 +44,6 @@ class Dashboard extends Component {
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Access-Control-Allow-Origin", "*");
 
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
     var requestOptions = {
         method: 'GET',
         redirect: 'follow',

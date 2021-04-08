@@ -174,7 +174,7 @@ fetch(proxyurl+url, requestOptions)
             showToast,
             allUsers
           } = this.state;
-          console.log(flag)
+          console.log(responseData)
 
         return(
             <div>

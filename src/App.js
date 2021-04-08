@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <Router>
         <Security
-          issuer="dev-753244.okta.com"
+          issuer="https://dev-753244.okta.com/oauth2/default"
           client_id="0oawhx4eolDyyKD0z4x6"
           redirect_uri={window.location.origin + '/implicit/callback'}
           onAuthRequired={onAuthRequired}
@@ -49,8 +49,7 @@ class App extends Component {
               <SecureRoute path="/teams" exact={true} component={Teams} />
               <SecureRoute path="/myTeam" exact={true} component={MyTeam} />
               <SecureRoute path="/scores" exact={true} component={Scores} />
-
-              <SecureRoute path="/schedule" exact={true} component={Schedule} />
+              <Route path="/schedule" exact={true} component={Schedule} />
               <SecureRoute path="/allPlayers" exact={true} component={AllPlayers} />
               <SecureRoute path="/playerPoints" exact={true} component={DailyPlayerScores} />
               <SecureRoute path="/allocations" exact={true} component={Allocations} />
