@@ -4,6 +4,7 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+
 class Navbar extends Component {
   render() {
     return (
@@ -11,14 +12,14 @@ class Navbar extends Component {
         <div className="container">
 
           <Link className="navbar-brand" to="/">
-          <Row>
-            <Col xs={6} md={4}>
-              <Image src="cm.png" roundedCircle height="40px"/>
-              
-            </Col>
+            <Row>
+              <Col xs={6} md={4}>
+                <Image src="cm.png" rounded height="40px"/>
             
+              </Col>
             </Row>
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"

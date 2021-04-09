@@ -216,7 +216,6 @@ fetch(url, requestOptions)
                             <div>                     
                             <React.Fragment> <Button style={{ width: '48%'}} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1} - {element.team1_votes}</Button></React.Fragment>
                             <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2} - {element.team2_votes}</Button> </React.Fragment>
-                            <React.Fragment> <Button style={{ width: '98.5%'}} variant = "dark" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,'NOTA')}>NOTA - 0</Button> </React.Fragment>
                             </div>
                             </Card.Body>
                         </Card>
