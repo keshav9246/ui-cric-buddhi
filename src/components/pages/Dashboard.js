@@ -164,9 +164,10 @@ getCurrentUser =  ()=> {
 
     return ( <div>
         <Container>
-            <Alert variant="danger">
-            All predictions untill 6 pm will be hidden. 
-            If your name appears in the Predictions tab, it means your prediction was submitted. It will appear at 6 pm.       </Alert>
+            <Alert variant="info">
+            Votings open until 630 pm. 
+            All predictions untill 6:30 pm will be hidden. 
+            If your name appears in the Predictions tab, it means your prediction was submitted.</Alert>
             <Row>
             {currentUser && currentUser.map((element,index) => { 
               return  <Col>
@@ -235,8 +236,8 @@ getCurrentUser =  ()=> {
 
             <Row>
                 <Col>
-                <Button variant="dark" size="lg" block>
-                   <h6>2019 Winners: Tanmay Dave, Akash Dhoot</h6> 
+                <Button variant="danger" size="lg" block>
+                   <h6>2020 Winners: Swapnil Phatak, Keshav Rajput</h6> 
                 </Button>
                 <Button variant="success" size="lg" block>
                     Daily Predictions Points Table
@@ -264,8 +265,8 @@ getCurrentUser =  ()=> {
 
                 </Col> 
                 <Col>
-                <Button variant="dark" size="lg" block>
-                   <h6> 2019 Winners: Keshav Rajput, Swapnil Phatak </h6>
+                <Button variant="danger" size="lg" block>
+                   <h6> 2020 Winners: Parth Talele, Tanmay Dave</h6>
                 </Button>
                 <Button variant="warning" size="lg" block>
                     Dream 18 Points Table

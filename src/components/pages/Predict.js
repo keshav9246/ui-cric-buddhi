@@ -116,7 +116,7 @@ myHeaders.append("Access-Control-Allow-Origin", "*");
 
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
          let url = "https://cric-fap.herokuapp.com/v1/iplt20/submitPrediction";
-         fetch(proxyurl + url, {
+         fetch(url, {
           method: 'POST', // or 'PUT'
           headers: {
             'Content-Type': 'application/json',
@@ -158,7 +158,7 @@ var requestOptions = {
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 let url = "https://cric-fap.herokuapp.com/v1/iplt20/submitPrediction";
 
-fetch(proxyurl+url, requestOptions)
+fetch(url, requestOptions)
   .then(response => response.text())
   .then(() => this.setState({successMessage:"Your prediction was submitted successfully for Game-"+gameNum, showToast:true}))
   .catch(error => this.setState({successMessage:"Your prediction was NOT submitted successfully. Error message is "+error, showToast:true}));
@@ -214,9 +214,9 @@ fetch(proxyurl+url, requestOptions)
                               Enter your votes here  
                             </Card.Text>
                             <div>                     
-                            <React.Fragment> <Button style={{ width: '32%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1} - {element.team1_votes}</Button></React.Fragment>
-                            <React.Fragment> <Button style={{ width: '32%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>NOTA-0</Button> </React.Fragment>
-                            <React.Fragment> <Button style={{ width: '32%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2} - {element.team2_votes}</Button> </React.Fragment>
+                            <React.Fragment> <Button style={{ width: '48%'}} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team1)}>{element.team1} - {element.team1_votes}</Button></React.Fragment>
+                            <React.Fragment> <Button style={{ width: '48%' }} variant = "warning" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,element.team2)}>{element.team2} - {element.team2_votes}</Button> </React.Fragment>
+                            <React.Fragment> <Button style={{ width: '98.5%'}} variant = "dark" href="#" onClick = {() => this.handlePredictions(element.gameNum,currentUserEmail,'NOTA')}>NOTA - 0</Button> </React.Fragment>
                             </div>
                             </Card.Body>
                         </Card>
