@@ -63,7 +63,7 @@ class Allocations extends Component{
                 <Button variant="success" size="lg" block>
                     Player Allocations
                 </Button>
-                <DropdownButton id="dropdown-basic-button" title="Kiske Dekhne hain ?">
+                {/* <DropdownButton id="dropdown-basic-button" title="Kiske Dekhne hain ?">
                     <Dropdown.Item onSelect={() => this.getAllocations()}> All</Dropdown.Item>
                     <Dropdown.Item onSelect={() => this.getAllocationsByName("Akash")}> Akash</Dropdown.Item>
                     <Dropdown.Item onSelect={() =>this.getAllocationsByName("Devang")}>Devang</Dropdown.Item>
@@ -78,13 +78,31 @@ class Allocations extends Component{
                     <Dropdown.Item onSelect={() =>this.getAllocationsByName("Ved")}>Ved</Dropdown.Item>
                     <Dropdown.Item onSelect={() =>this.getAllocationsByName("Dhruvik")}>Dhruvik</Dropdown.Item>
                     <Dropdown.Item onSelect={() =>this.getAllocationsByName("Tanmay")}>Tanmay</Dropdown.Item>
-                </DropdownButton>
+                </DropdownButton> */}
                <Table striped bordered hover size="sm" responsive>
                 <thead>
                     <tr>
                     <th>Game #</th>
-                    <th>User</th>
                     <th>Player</th>
+                    <th>
+                    <DropdownButton id="dropdown-basic-button" variant="warning" title="Kiske Dekhne hain ?">
+                        <Dropdown.Item onSelect={() => this.getAllocations()}> All</Dropdown.Item>
+                        <Dropdown.Item onSelect={() => this.getAllocationsByName("Akash")}> Akash</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Devang")}>Devang</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Keyur")}>Keyur</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Keshav")}>Keshav</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Parth")}>Parth</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Deepu")}>Deepu</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Lakhan")}>Lakhan</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sid")}>Sid</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sachin")}>Sachin</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Swapnil")}>Swapnil</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Ved")}>Ved</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Dhruvik")}>Dhruvik</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Tanmay")}>Tanmay</Dropdown.Item>
+                    </DropdownButton>
+                    </th>
+                    
                     <th>Player Score</th>
                     </tr>
                 </thead>
