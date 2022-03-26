@@ -18,7 +18,7 @@ class Dashboard extends Component {
     fantasyPointsTable: [],
     predictionPointsTable: [],
     predictionRank:0,
-    dream18Rank:0,
+    dream20Rank:0,
 };
 
    componentDidMount() {
@@ -118,7 +118,7 @@ getCurrentUser =  ()=> {
         let result = await response.json();
         result.map((element,index) => {
             if(element.userName === this.state.currentUserName){
-                   this.setState({dream18Rank:index+1}) 
+                   this.setState({dream20Rank:index+1}) 
             }
 
         })
@@ -160,7 +160,7 @@ getCurrentUser =  ()=> {
 
 
   render() {
-    const { currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream18Rank } = this.state;
+    const { currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream20Rank } = this.state;
 
     return ( <div>
         <Container>
@@ -211,16 +211,16 @@ getCurrentUser =  ()=> {
                     style={{ width: '18rem' }}
                     className="mb-2"
                     >
-                    <Card.Header>Your Dream18 standings</Card.Header>
+                    <Card.Header>Your Dream20 standings</Card.Header>
                     <Card.Body>
                     <Card.Title>Points and Rank</Card.Title>
                     <h1>
                     <Row>
                         <Col>
-                            <Badge variant="light">{element.dream18Score}</Badge> 
+                            <Badge variant="light">{element.dream20Score}</Badge> 
                         </Col>
                         <Col>
-                            <Badge variant="light">{dream18Rank}</Badge>
+                            <Badge variant="light">{dream20Rank}</Badge>
                         </Col>
                     </Row>
                     </h1>
@@ -237,7 +237,7 @@ getCurrentUser =  ()=> {
             <Row>
                 <Col>
                 <Button variant="danger" size="lg" block>
-                   <h6>2020 Winners: Swapnil Phatak, Keshav Rajput</h6> 
+                   <h6>2022</h6> 
                 </Button>
                 <Button variant="success" size="lg" block>
                     Daily Predictions Points Table

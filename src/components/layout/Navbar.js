@@ -90,6 +90,11 @@ class Navbar extends Component {
                   Allocations
               </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/submit11">
+                  Submit11
+              </Link>
+              </li>
           
             </ul>
           </div>

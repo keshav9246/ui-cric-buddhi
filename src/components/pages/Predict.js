@@ -236,25 +236,20 @@ fetch(url, requestOptions)
                           <th>#</th>
                         <th>Maniac</th>
                         <th>Power-player</th>
-                        <th>Orange cap</th>
-                        <th>Purple cap</th>
                         <th>Top 4</th>
-                        <th>Winner</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {/* <tbody>
                     {allUsers && allUsers.map((element,index) => { 
-                    return <tr>
+                    return 
+                    <tr>
                         <td>{index+1}</td>
                         <td>{element.userName}</td>
                         <td>{element.powerPlayer}</td>
-                        <td>{element.orangeCap}</td>
-                        <td>{element.purpleCap}</td>
                         <td>{element.qualifyingTeams}</td>
-                        <td>{element.winningTeam}</td>
                         </tr>
                     })}
-                    </tbody>
+                    </tbody> */}
                     </Table>
                         
                 </Col>
