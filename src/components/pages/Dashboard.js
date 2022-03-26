@@ -150,14 +150,11 @@ getCurrentUser =  ()=> {
             if(element.userName === this.state.currentUserName){
                    this.setState({predictionRank:index+1}) 
             }
-
         })
         this.setState({
             predictionPointsTable: result
         })
   }
-
-
 
   render() {
     const { currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream20Rank } = this.state;
