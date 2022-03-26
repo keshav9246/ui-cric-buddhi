@@ -151,10 +151,10 @@ class MyTeam extends Component {
 
                     <Row>
                      <Col>
-
+{/* 
                     <Button variant="secondary" size="lg" block>
                     Power Player: {currentUser && currentUser[0] && currentUser[0].powerPlayer}
-                </Button>
+                </Button> */}
                 </Col></Row>
                 <Row>
                      <Col>
