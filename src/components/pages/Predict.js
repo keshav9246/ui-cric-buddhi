@@ -230,12 +230,13 @@ fetch(url, requestOptions)
                     One Time predictions - All
                 </Button>
                 
-                {/* <Table striped bordered hover size="sm">
+                <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
                           <th>#</th>
                         <th>Maniac</th>
-                        <th>Power-player</th>
+                        <th>Bada PP</th>
+                        <th>Chhota PP</th>
                         <th>Top 4</th>
                         </tr>
                     </thead>
@@ -244,12 +245,13 @@ fetch(url, requestOptions)
                     return <tr>
                         <td>{index+1}</td>
                         <td>{element.userName}</td>
-                        <td>{element.powerPlayer}</td>
+                        <td>{element.powerPlayer.player_name}</td>
+                        <td>{element.miniPowerPlayer.player_name}</td>
                         <td>{element.qualifyingTeams}</td>
                         </tr>
                     })}
                     </tbody>
-                    </Table> */}
+                    </Table>
                         
                 </Col>
             </Row>

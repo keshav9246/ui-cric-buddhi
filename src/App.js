@@ -18,6 +18,9 @@ import Schedule from './components/pages/Schedule'
 import './App.css';
 import Allocations from './components/pages/Allocations';
 import Submit11 from './components/pages/Submit11'
+import Assignments from './components/pages/Assignments'
+
+
 
 function onAuthRequired({ history }) {
   history.push('/login');
@@ -55,6 +58,8 @@ class App extends Component {
               <SecureRoute path="/playerPoints" exact={true} component={DailyPlayerScores} />
               <SecureRoute path="/allocations" exact={true} component={Allocations} />
               <SecureRoute path="/submit11" exact={true} component={Submit11} />
+              <SecureRoute path="/assignments" exact={true} component={Assignments} />
+
               <Route path="/implicit/callback" component={ImplicitCallback} />
             </div>
           </div>

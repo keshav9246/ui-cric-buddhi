@@ -45,11 +45,7 @@ class Navbar extends Component {
                   Staff
                 </Link>
               </li> */}
-              <li className="nav-item">
-                <Link className="nav-link" to="/schedule">
-                  IPL Schedule
-                </Link>
-              </li>
+             
               <li className="nav-item">
                 <Link className="nav-link" to="/predict">
                   Predict
@@ -60,11 +56,11 @@ class Navbar extends Component {
                   Predictions
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/teams">
                   Teams
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/myTeam">
                   My Dream Team
@@ -76,6 +72,16 @@ class Navbar extends Component {
               </Link>
               </li> */}
               <li className="nav-item">
+                <Link className="nav-link" to="/assignments">
+                  Assignments
+              </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/allocations">
+                  Allocations
+              </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/allPlayers">
                    All Players Rankings
               </Link>
@@ -86,9 +92,9 @@ class Navbar extends Component {
               </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/allocations">
-                  Allocations
-              </Link>
+                <Link className="nav-link" to="/schedule">
+                  IPL Schedule
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/submit11">

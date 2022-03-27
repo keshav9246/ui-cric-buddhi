@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Button from 'react-bootstrap/Button';
-
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 class Submit11 extends Component{
 
@@ -157,10 +159,15 @@ constructor(props){
         let player1CheckList = [];
         if(team1Players && team1Players.length > 0){
             player1CheckList = team1Players.map(elem => {
-                return (<div style={{display: "flex", width: "100px", height: "50px", justifyContent: "space-around", alignContent: "center"}}>
+                return (
+                    <ListGroup.Item variant="info">
+                <div style={{display: "flex", width: "100px", height: "50px", justifyContent: "space-around", alignContent: "center"}}>
                     <input type="checkbox" onChange={() => this.selectPlayers(1, elem)} checked={players1Selected.includes(elem)}></input>
-                    <p style={{margin: "0"}}>{elem}</p>
-                </div>);
+                    <p style={{width: "100%"}}>{elem}</p>
+                </div>
+                </ListGroup.Item>
+
+                );
             });
         }
 
@@ -168,31 +175,68 @@ constructor(props){
             team2 = this.state.team2;
             let player2CheckList = [];
             if(team2Players && team2Players.length > 0){
-                player2CheckList = team2Players.map(elem => {
-                    return (<div style={{display: "flex", width: "100px", height: "50px", justifyContent: "space-around", alignContent: "center"}}>
+                                player2CheckList = team2Players.map(elem => {
+                    return (
+                        <ListGroup.Item variant="warning">
+                        <div style={{display: "flex", width: "100px", height: "50px", justifyContent: "space-around", alignContent: "center"}}>
                         <input type="checkbox" onChange={() => this.selectPlayers(2, elem)} checked={players2Selected.includes(elem)}></input>
                         <p style={{margin: "0"}}>{elem}</p>
-                    </div>);
+                    </div>
+                    </ListGroup.Item>);
                 });
+               
             }
 
         return(
             <div>
-                Select game number: 
-                <DropdownButton id="dropdown-basic-button" title={`Select Game`}>
-                    {options}
-                </DropdownButton>
-        {selectedGame !== 0 && <p>Game {this.state.selectedGame}</p>}
+                <Button variant="success" size="lg" block>
+                    Submit Playing 11
+                </Button>
+                <Container>
+                <Row>
+                    <Col>
+                        <DropdownButton id="dropdown-basic-button" title={`Select Game`}>
+                        {   options}
+                        </DropdownButton>
+                    </Col>
+                </Row>
                 
-        <p>{this.state.team1}</p>
-                {player1CheckList}
+                 
 
-        <p>{this.state.team2}</p>
-                {player2CheckList}
+                    
+  
+   <div>
+    {selectedGame !== 0 && <p>Game {this.state.selectedGame}</p>}
+    </div>
+    
+</Container>
 
+                <Container>
+                <Row>
+                    <Col>
+                        <div>
+                        <Button variant="info" size="lg" block>
+                        <p>{this.state.team1}</p>
+                        </Button>
+                         {player1CheckList}
+                        </div>
+                    </Col>
+                    <Col>
+                    <div>
+                    <Button variant="info" size="lg" block>
+                        <p>{this.state.team2}</p>
+                        </Button>
+                                {player2CheckList}
+                        </div>
+                    
+                    </Col>
+                </Row>
+                </Container>
+              
                 <Button variant="warning" size="lg" block onClick={this.onSubmit}>
                     Submit
                 </Button>
+
             </div>
         )
             

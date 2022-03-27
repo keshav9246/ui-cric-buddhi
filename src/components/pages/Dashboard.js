@@ -234,7 +234,7 @@ getCurrentUser =  ()=> {
             <Row>
                 <Col>
                 <Button variant="danger" size="lg" block>
-                   <h6>2022</h6> 
+                   <h6>Indian Premier League</h6> 
                 </Button>
                 <Button variant="success" size="lg" block>
                     Daily Predictions Points Table
@@ -263,10 +263,10 @@ getCurrentUser =  ()=> {
                 </Col> 
                 <Col>
                 <Button variant="danger" size="lg" block>
-                   <h6> 2020 Winners: Parth Talele, Tanmay Dave</h6>
+                   <h6> 2022 </h6>
                 </Button>
                 <Button variant="warning" size="lg" block>
-                    Dream 18 Points Table
+                    Dream 20 Points Table
                 </Button>
                 <Table striped bordered hover size="sm">
                     <thead>

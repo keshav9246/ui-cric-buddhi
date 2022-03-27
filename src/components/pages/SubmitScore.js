@@ -36,8 +36,24 @@ class SubmitScore extends Component{
 
     getPlaying11=()=>{
 
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
+          
+          fetch(`https://cric-fap.herokuapp.com/v1/iplt20/getPlaying11?gameNum=${this.state.selectedGame}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
+              team1Players: result.team1Players,
+              team2Players: result.team2Players,
+              team1: result.team1,
+              team2: result.team2
+              })})
+            .catch(error => console.log('error', error));
+            
+        }
 
-    }
+    
 };
     
 
