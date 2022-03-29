@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
+
 class Navbar extends Component {
   render() {
     return (
@@ -99,6 +100,11 @@ class Navbar extends Component {
               <li className="nav-item">
                 <Link className="nav-link" to="/submit11">
                   Submit11
+              </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/submitScore">
+                  SubmitScore
               </Link>
               </li>
           

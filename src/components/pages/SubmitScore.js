@@ -3,58 +3,380 @@ import { render } from "react-dom";
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
+import InputGroup from 'react-bootstrap/InputGroup'
+import FormControl from 'react-bootstrap/FormControl'
+import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
 
-class SubmitScore extends Component{
+
+
+
+class SubmitScore extends Component {
+    constructor(props){
     super(props);
-    state = {
+    this.state = {
         selectedGame: 0,
-        team1Players:[],
-        team2Players:[],
-        players1Selected: [],
-        players2Selected: [],
-       
+        team1Players: [],
+        team2Players: [],
+        currentPlayerName : '',
+        scoreSheet : {
+            scorePK :{
+                gameNum: '',
+                playerName:''
+            },
+            runsScored: 0,
+            ballsFaced:0,
+            foursHit:0,
+            sixesHit:0,
+            isNotout:false,
+            ballsBowled:0,
+            runsConceded:0,
+            dots:0,
+            wicketsTaken:0,
+            bwldLbwCnb: 0,
+            maidenOvers:0,
+            hatricks:0,
+            catchesTaken:0,
+            directHits:0,
+            stumpings:0,
+        isMOM:false
+        }
     }
+}
 
     componentDidMount() {
         const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
-        if(idToken && idToken.idToken && idToken.idToken.claims)
-          {
-      this.setState({
-        currentUserEmail: idToken.idToken.claims.email,
-      });
-     }
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot){
-        console.log(prevState.selectedGame);
-        console.log(this.state.selectedGame);
-        if(this.state.selectedGame!==0 && prevState.selectedGame !==this.state.selectedGame){
-        this.getPlaying11();
+        if (idToken && idToken.idToken && idToken.idToken.claims) {
+            this.setState({
+                currentUserEmail: idToken.idToken.claims.email,
+            });
         }
     }
 
-    getPlaying11=()=>{
 
+    updateSelectedGame(gameId){
+        const newScoreSheet = {...this.state.scoreSheet}
+        newScoreSheet.scorePK["gameNum"] = gameId
+        this.setState({
+            team1Players:[],
+            team2Players:[],
+            selectedGame: gameId,
+            scoreSheet : {...newScoreSheet}
+        })
+        console.log(this.state.scoreSheet)
+
+    }
+
+    updateIsNotOut(value){
+        const newScoreSheet = {...this.state.scoreSheet}
+        newScoreSheet.isNotout = value
+
+        this.setState({
+            scoreSheet : {...newScoreSheet}
+        })
+        console.log(this.state.scoreSheet)
+
+    }
+
+    updateMOM(value){
+        const newScoreSheet = {...this.state.scoreSheet}
+        newScoreSheet.isMOM = value
+        this.setState({
+            scoreSheet : {...newScoreSheet}
+        })
+        console.log(this.state.scoreSheet)
+
+    }
+
+    updateCurrentPlayer(name){
+        const newScoreSheet = {...this.state.scoreSheet}
+        newScoreSheet.scorePK["playerName"] = name
+        this.setState({
+            currentPlayerName : name,
+            scoreSheet : {...newScoreSheet}
+
+        })
+        console.log(this.state.scoreSheet)
+    }
+
+   
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevState.selectedGame);
+        console.log(this.state.selectedGame);
+        if (this.state.selectedGame !== 0 && prevState.selectedGame !== this.state.selectedGame) {
+            this.getPlaying11();
+        }
+    }
+
+    getPlaying11 = () => {
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
-          };
-          
-          fetch(`https://cric-fap.herokuapp.com/v1/iplt20/getPlaying11?gameNum=${this.state.selectedGame}`, requestOptions)
+        };
+
+        fetch(`https://cric-fap.herokuapp.com/v1/iplt20/getPlaying11?gameNum=${this.state.selectedGame}`, requestOptions)
             .then(response => response.text())
-            .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
-              team1Players: result.team1Players,
-              team2Players: result.team2Players,
-              team1: result.team1,
-              team2: result.team2
-              })})
+            .then(result => {
+                result = JSON.parse(result); console.log(typeof result); this.setState({
+                    team1Players: result.team1Players,
+                    team2Players: result.team2Players,
+                })
+            })
             .catch(error => console.log('error', error));
-            
+
+    }
+
+    handleChange = (e) => {
+      console.log(e,"e")
+        const newScoreSheet = {...this.state.scoreSheet}
+        newScoreSheet[e.target.id] = e.target.value
+        this.state.scoreSheet = {...newScoreSheet}
+       
+        console.log(this.state.scoreSheet);
+    }
+
+    handleSubmit= (event) => {
+        event.preventDefault();
+        console.log(this.state.scoreSheet)
+        let body = this.state.scoreSheet;
+        console.log("bbody",body)
+
+        var requestOptions = {
+            method: 'POST',
+            redirect: 'follow',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+            };
+          
+          fetch(`https://cric-fap.herokuapp.com/v1/iplt20/submitScore`, requestOptions)
+          .then(response => response.text())
+          .then(result => {result = result.text(); console.log("success ",  result); alert(result)})
+          .catch(error => console.log('error', error));
+          
+     
+    }
+
+    render() {
+
+        let {team1Players, team2Players,selectedGame, currentPlayerName} = this.state;
+        const options = [];
+        const players1 = [];
+        const players2 = [];
+        for(let i = 1; i<=74; i++){
+            options.push(<Dropdown.Item onClick={()=>this.updateSelectedGame(i)}>{i}</Dropdown.Item>)
+        }
+        for(let i = 1; i<=team1Players.length; i++){
+            players1.push(<Dropdown.Item onClick={()=>this.updateCurrentPlayer(team1Players[i])}>{team1Players[i]}</Dropdown.Item>)
+        }
+        for(let i = 1; i<=team2Players.length; i++){
+            players2.push(<Dropdown.Item onClick={()=>this.updateCurrentPlayer(team2Players[i])}>{team2Players[i]}</Dropdown.Item>)
         }
 
+
+        // let {team1Players, team1Players,selectedGame, currentPlayerName} = this.state;
+        // const options = [];
+        // for(let i = 1; i<=team1Players.length; i++){
+        //     options.push(<Dropdown.Item onClick={()=>this.state{currentPlayerName:team1Players[i]}}></Dropdown.Item>)
+        // }
+        return (
+            <div>
+                <Button variant="success" size="lg" block>
+                    Submit Scores
+                </Button>
+                <Row>
+                    <Col>
+                        <DropdownButton  variant="warning" id="gameNum" title={`Select Game`}>
+                        {options}
+                        </DropdownButton>
+                    </Col>
+                    <Col>
+                        <DropdownButton variant="warning" id="playerName" title={`Select Player`}>
+                        {players1}
+                        </DropdownButton>
+                    </Col>
+                    <Col>
+                        <DropdownButton variant="warning" id="dropdown-basic-button" title={`Select Player`}>
+                        {players2}
+                        </DropdownButton>
+                    </Col>
+                    
+                </Row> 
+                <div>
+                <Form>
+
+
+    <Row>
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default" >Game</InputGroup.Text>
+            <FormControl id = "gameNum"  placeholder="Game number" value = {this.state.selectedGame} readOnly/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Player</InputGroup.Text>
+            <FormControl  id = "playerName" placeholder="Player name" value = {this.state.currentPlayerName} readOnly/>
+            </InputGroup>
+        </Col>
+    </Row>
+
+    <Form.Label>Batting Points</Form.Label>
+    <Row>
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "runsScored" 
+            placeholder="Runs Scored"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Balls</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "ballsFaced" placeholder="Balls faced"/>
+            </InputGroup>
+        </Col>
+    </Row>
+
+    <Row>
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Fours</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "foursHit"  placeholder="4s"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Sixes</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "sixesHit"  placeholder="6s"/>
+            </InputGroup>
+        </Col>
+        <Col>
+        <InputGroup className="mb-3">
+    <DropdownButton id = "isNotout"
+      variant="outline-secondary"
+      title="Is Not out"
+    >
+      <Dropdown.Item href="#" onClick={()=>this.updateIsNotOut('true')} id = 'isNotout' >True</Dropdown.Item>
+      <Dropdown.Item href="#" onClick={()=>this.updateIsNotOut('false')} id = 'isNotout' >False</Dropdown.Item>
+    </DropdownButton>
+    <FormControl value = {this.state.scoreSheet.isNotout}  placeholder="Was he not out" readOnly/>
+  </InputGroup>
+  </Col>
+    </Row>
+
+    <Form.Label>Bowling Points</Form.Label>
+    <Row>
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Balls</InputGroup.Text>
+            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "ballsBowled" placeholder="Balls bowled"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "runsConceded" placeholder="Runs Conceeded"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Dots</InputGroup.Text>
+            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "dots" placeholder="Dots bowled"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Wickets</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "wicketsTaken" placeholder="Wickets Taken"/>
+            </InputGroup>
+        </Col>
+    </Row>
+
+    <Row>
+        
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Bowled or LBWs</InputGroup.Text>
+            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "bwldLbwCnb" placeholder="No. of bold and lbws"/>
+            </InputGroup>
+        </Col>
     
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Maiden </InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "maidenOvers" placeholder="Maiden kitni daali ?"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Hatrick</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "hatricks" placeholder="Hatrick kitni li ?"/>
+            </InputGroup>
+        </Col>
+
+    </Row>
+
+    <Form.Label>Fielding Points</Form.Label>
+    <Row>
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Catches</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "catchesTaken" placeholder="Catches taken"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Direct hits</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "directHits" placeholder="Direct hits"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+            <InputGroup className="mb-3">
+            <InputGroup.Text id="inputGroup-sizing-default">Stumpings</InputGroup.Text>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "stumpings" placeholder="Stumpings"/>
+            </InputGroup>
+        </Col>
+
+        <Col>
+        <InputGroup className="mb-3">
+    <DropdownButton
+      variant="outline-secondary"
+      title="MOM"
+      id="isMOM" 
+    >
+      <Dropdown.Item onClick={()=>this.updateMOM('true')} id = 'isMOM' > True</Dropdown.Item>
+      <Dropdown.Item onClick={()=>this.updateMOM('false')} id = 'isMOM'>False</Dropdown.Item>
+    </DropdownButton>
+    <FormControl   placeholder="Man of match" value = {this.state.scoreSheet.isMOM} readOnly/>
+  </InputGroup>
+        </Col>
+    </Row> 
+                    <Button variant="success" type="submit" size="lg" block onClick = {this.handleSubmit}>
+                        Submit
+  </Button>
+                </Form>
+                </div>
+            </div>
+        )
+    }
 };
-    
+
 
 export default SubmitScore;

@@ -161,10 +161,10 @@ constructor(props){
             player1CheckList = team1Players.map(elem => {
                 return (
                     <ListGroup.Item variant="info">
-                <div style={{display: "flex", width: "100px", height: "50px", justifyContent: "space-around", alignContent: "center"}}>
+            
                     <input type="checkbox" onChange={() => this.selectPlayers(1, elem)} checked={players1Selected.includes(elem)}></input>
                     <p style={{width: "100%"}}>{elem}</p>
-                </div>
+                
                 </ListGroup.Item>
 
                 );
@@ -199,18 +199,12 @@ constructor(props){
                         {   options}
                         </DropdownButton>
                     </Col>
-                </Row>
-                
-                 
-
-                    
-  
+                </Row>  
    <div>
     {selectedGame !== 0 && <p>Game {this.state.selectedGame}</p>}
     </div>
     
 </Container>
-
                 <Container>
                 <Row>
                     <Col>
@@ -218,7 +212,7 @@ constructor(props){
                         <Button variant="info" size="lg" block>
                         <p>{this.state.team1}</p>
                         </Button>
-                         {player1CheckList}
+                          {player1CheckList}
                         </div>
                     </Col>
                     <Col>
@@ -238,11 +232,7 @@ constructor(props){
                 </Button>
 
             </div>
-        )
-            
-    
+        ) 
 }
-
-
 };
 export default Submit11;
