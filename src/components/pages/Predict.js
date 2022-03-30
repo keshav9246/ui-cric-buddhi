@@ -160,7 +160,7 @@ let url = "https://cric-fap.herokuapp.com/v1/iplt20/submitPrediction";
 
 fetch(url, requestOptions)
   .then(response => response.text())
-  .then(() => this.setState({successMessage:"Your prediction was submitted successfully for Game-"+gameNum, showToast:true}))
+  .then((result) => this.setState({successMessage:result, showToast:true}))
   .catch(error => this.setState({successMessage:"Your prediction was NOT submitted successfully. Error message is "+error, showToast:true}));
   
     }

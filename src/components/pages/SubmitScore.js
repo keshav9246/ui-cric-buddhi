@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
-import ThemeProvider from 'react-bootstrap/ThemeProvider'
+import Alert from 'react-bootstrap/Alert'
 
 
 
@@ -18,10 +18,12 @@ class SubmitScore extends Component {
     constructor(props){
     super(props);
     this.state = {
+        showToast: false,
         selectedGame: 0,
         team1Players: [],
         team2Players: [],
         currentPlayerName : '',
+        responseMessage:'nothingg here',
         scoreSheet : {
             scorePK :{
                 gameNum: '',
@@ -61,8 +63,8 @@ class SubmitScore extends Component {
         const newScoreSheet = {...this.state.scoreSheet}
         newScoreSheet.scorePK["gameNum"] = gameId
         this.setState({
-            team1Players:[],
-            team2Players:[],
+            team1Players:this.state.team1Players,
+            team2Players:this.state.team2Players,
             selectedGame: gameId,
             scoreSheet : {...newScoreSheet}
         })
@@ -92,11 +94,30 @@ class SubmitScore extends Component {
     }
 
     updateCurrentPlayer(name){
-        const newScoreSheet = {...this.state.scoreSheet}
-        newScoreSheet.scorePK["playerName"] = name
         this.setState({
-            currentPlayerName : name,
-            scoreSheet : {...newScoreSheet}
+            responseMessage:'',
+            scoreSheet : {
+                scorePK :{
+                    gameNum:this.state.selectedGame,
+                    playerName:name
+                },
+                runsScored: 0,
+                ballsFaced:0,
+                foursHit:0,
+                sixesHit:0,
+                isNotout:false,
+                ballsBowled:0,
+                runsConceded:0,
+                dots:0,
+                wicketsTaken:0,
+                bwldLbwCnb: 0,
+                maidenOvers:0,
+                hatricks:0,
+                catchesTaken:0,
+                directHits:0,
+                stumpings:0,
+            isMOM:false
+            }
 
         })
         console.log(this.state.scoreSheet)
@@ -138,10 +159,15 @@ class SubmitScore extends Component {
        
         console.log(this.state.scoreSheet);
     }
+    setShow = () => {
+        this.setState( {
+            responseMessage:''
+        })
+    }
 
     handleSubmit= (event) => {
         event.preventDefault();
-        console.log(this.state.scoreSheet)
+        console.log("event", event)
         let body = this.state.scoreSheet;
         console.log("bbody",body)
 
@@ -157,12 +183,13 @@ class SubmitScore extends Component {
           
           fetch(`https://cric-fap.herokuapp.com/v1/iplt20/submitScore`, requestOptions)
           .then(response => response.text())
-          .then(result => {result = result.text(); console.log("success ",  result); alert(result)})
-          .catch(error => console.log('error', error));
-          
-     
-    }
-
+          .then((result) => this.setState({responseMessage:result, showToast:true}))
+          .catch(error => this.state.responseMessage=error);
+        
+            event.target.reset();
+          console.log(this.state.responseMessage)
+          }
+ 
     render() {
 
         let {team1Players, team2Players,selectedGame, currentPlayerName} = this.state;
@@ -172,14 +199,12 @@ class SubmitScore extends Component {
         for(let i = 1; i<=74; i++){
             options.push(<Dropdown.Item onClick={()=>this.updateSelectedGame(i)}>{i}</Dropdown.Item>)
         }
-        for(let i = 1; i<=team1Players.length; i++){
+        for(let i = 0; i<=team1Players.length; i++){
             players1.push(<Dropdown.Item onClick={()=>this.updateCurrentPlayer(team1Players[i])}>{team1Players[i]}</Dropdown.Item>)
         }
-        for(let i = 1; i<=team2Players.length; i++){
+        for(let i = 0; i<=team2Players.length; i++){
             players2.push(<Dropdown.Item onClick={()=>this.updateCurrentPlayer(team2Players[i])}>{team2Players[i]}</Dropdown.Item>)
         }
-
-
         // let {team1Players, team1Players,selectedGame, currentPlayerName} = this.state;
         // const options = [];
         // for(let i = 1; i<=team1Players.length; i++){
@@ -190,6 +215,13 @@ class SubmitScore extends Component {
                 <Button variant="success" size="lg" block>
                     Submit Scores
                 </Button>
+
+
+                {this.state.showToast && 
+                <Alert variant='success' onClose={() => this.setShow()}>
+                        {this.state.responseMessage}
+                </Alert>}
+                
                 <Row>
                     <Col>
                         <DropdownButton  variant="warning" id="gameNum" title={`Select Game`}>
@@ -209,31 +241,30 @@ class SubmitScore extends Component {
                     
                 </Row> 
                 <div>
-                <Form>
-
+                <Form onSubmit = {this.handleSubmit}>
 
     <Row>
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default" >Game</InputGroup.Text>
-            <FormControl id = "gameNum"  placeholder="Game number" value = {this.state.selectedGame} readOnly/>
+            <FormControl id = "gameNum"  placeholder="Game number" value = {this.state.scoreSheet.scorePK.gameNum} readOnly/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Player</InputGroup.Text>
-            <FormControl  id = "playerName" placeholder="Player name" value = {this.state.currentPlayerName} readOnly/>
+            <FormControl  id = "playerName" placeholder="Player name" value = {this.state.scoreSheet.scorePK.playerName} readOnly/>
             </InputGroup>
         </Col>
     </Row>
 
-    <Form.Label>Batting Points</Form.Label>
+    <Form.Label style={{backgroundColor: "yellow"}}>Batting Points</Form.Label>
     <Row>
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "runsScored" 
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e) } id = "runsScored" 
             placeholder="Runs Scored"/>
             </InputGroup>
         </Col>
@@ -274,7 +305,7 @@ class SubmitScore extends Component {
   </Col>
     </Row>
 
-    <Form.Label>Bowling Points</Form.Label>
+    <Form.Label style={{backgroundColor: "yellow"}}>Bowling Points</Form.Label>
     <Row>
         <Col>
             <InputGroup className="mb-3">
@@ -331,7 +362,7 @@ class SubmitScore extends Component {
 
     </Row>
 
-    <Form.Label>Fielding Points</Form.Label>
+    <Form.Label style={{backgroundColor: "yellow"}}>Fielding Points</Form.Label>
     <Row>
         <Col>
             <InputGroup className="mb-3">
@@ -368,7 +399,7 @@ class SubmitScore extends Component {
   </InputGroup>
         </Col>
     </Row> 
-                    <Button variant="success" type="submit" size="lg" block onClick = {this.handleSubmit}>
+                    <Button variant="success" type="submit" size="lg" block >
                         Submit
   </Button>
                 </Form>
