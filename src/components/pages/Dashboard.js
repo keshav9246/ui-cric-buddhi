@@ -18,7 +18,7 @@ class Dashboard extends Component {
     fantasyPointsTable: [],
     predictionPointsTable: [],
     predictionRank:0,
-    dream20Rank:0,
+    dream18Rank:0,
 };
 
    componentDidMount() {
@@ -117,8 +117,12 @@ getCurrentUser =  ()=> {
         let response = await fetch("https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
-            if(element.userName === this.state.currentUserName){
-                   this.setState({dream20Rank:index+1}) 
+            console.log(element.userName, this.state.currentUserName)
+            if(this.state.currentUserName == 'Lakhan' && this.state.currentUserName.split(" ")[0] == 'Harsh'){
+                this.setState({dream18Rank:index+1}) 
+         }
+            if(element.userName === this.state.currentUserName.split(" ")[0]){
+                   this.setState({dream18Rank:index+1}) 
             }
 
         })
@@ -147,7 +151,11 @@ getCurrentUser =  ()=> {
         let response = await fetch("https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
-            if(element.userName === this.state.currentUserName){
+            console.log(element.userName, this.state.currentUserName)
+            if(this.state.currentUserName == 'Lakhan' && this.state.currentUserName.split(" ")[0] == 'Harsh'){
+                this.setState({predictionRank:index+1}) 
+         }
+            if(element.userName === this.state.currentUserName.split(" ")[0]){
                    this.setState({predictionRank:index+1}) 
             }
         })
@@ -157,7 +165,7 @@ getCurrentUser =  ()=> {
   }
 
   render() {
-    const { currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream20Rank } = this.state;
+    const { currentUser,predictionPointsTable,fantasyPointsTable,predictionRank,dream18Rank } = this.state;
 
     return ( <div>
         <Container>
@@ -217,7 +225,7 @@ getCurrentUser =  ()=> {
                             <Badge variant="light">{element.dream20Score}</Badge> 
                         </Col>
                         <Col>
-                            <Badge variant="light">{dream20Rank}</Badge>
+                            <Badge variant="light">{this.state.dream18Rank}</Badge>
                         </Col>
                     </Row>
                     </h1>

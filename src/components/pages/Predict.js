@@ -160,7 +160,7 @@ let url = "https://cric-fap.herokuapp.com/v1/iplt20/submitPrediction";
 
 fetch(url, requestOptions)
   .then(response => response.text())
-  .then((result) => this.setState({successMessage:result, showToast:true}))
+  .then(() => this.setState({successMessage:"Your prediction was submitted succesfully. Ab zyada soch mat.", showToast:true}))
   .catch(error => this.setState({successMessage:"Your prediction was NOT submitted successfully. Error message is "+error, showToast:true}));
   
     }
@@ -181,19 +181,6 @@ fetch(url, requestOptions)
               <Container>
               <Row>
             
-                {showToast && 
-                <Alert variant='success'>
-                        {successMessage}
-                </Alert>
-                // <Toast delay={2000} autohide>
-                //   <Toast.Header>
-                //     <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-                //     <strong className="mr-auto">Success Message</strong>
-                //     <small>11 mins ago</small>
-                //   </Toast.Header>
-                //  <Toast.Body>{successMessage}</Toast.Body>
-                // </Toast>
-                }
                 
              {responseData && responseData.map((element,index) => { 
             
@@ -223,6 +210,15 @@ fetch(url, requestOptions)
                 
                     })
              }
+             <Col>
+                {showToast && 
+                <Alert variant='success'>
+                        {successMessage}
+                </Alert>
+                
+        
+                }
+                </Col>
                </Row>
                <Row>
                 <Col>
