@@ -394,7 +394,7 @@ class SubmitScore extends Component {
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Stumpings</InputGroup.Text>
             <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "stumpings" placeholder="Stumpings"
-            value = {this.state.scoreSheet.stumpingsss}/>
+            value = {this.state.scoreSheet.stumpings}/>
             </InputGroup>
         </Col>
 
