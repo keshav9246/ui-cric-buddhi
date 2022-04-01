@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 
 
 class Navbar extends Component {
+  
+
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
@@ -102,6 +104,7 @@ class Navbar extends Component {
                   Submit11
               </Link>
               </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="/submitScore">
                   SubmitScore

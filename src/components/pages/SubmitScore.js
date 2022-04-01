@@ -265,14 +265,15 @@ class SubmitScore extends Component {
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
             <FormControl type = "number" onChange = {(e) => this.handleChange(e) } id = "runsScored" 
-            placeholder="Runs Scored"/>
+            placeholder="Runs Scored" value = {this.state.scoreSheet.runsScored}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Balls</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "ballsFaced" placeholder="Balls faced"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "ballsFaced" placeholder="Balls faced"
+            value = {this.state.scoreSheet.ballsFaced}/>
             </InputGroup>
         </Col>
     </Row>
@@ -281,14 +282,16 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Fours</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "foursHit"  placeholder="4s"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "foursHit"  placeholder="4s"
+            value = {this.state.scoreSheet.foursHit}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Sixes</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "sixesHit"  placeholder="6s"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "sixesHit"  placeholder="6s"
+            value = {this.state.scoreSheet.sixesHit}/>
             </InputGroup>
         </Col>
         <Col>
@@ -310,28 +313,32 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Balls</InputGroup.Text>
-            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "ballsBowled" placeholder="Balls bowled"/>
+            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "ballsBowled" placeholder="Balls bowled"
+            value = {this.state.scoreSheet.ballsBowled}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "runsConceded" placeholder="Runs Conceeded"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "runsConceded" placeholder="Runs Conceeded"
+            value = {this.state.scoreSheet.runsConceded}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Dots</InputGroup.Text>
-            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "dots" placeholder="Dots bowled"/>
+            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "dots" placeholder="Dots bowled" 
+            value = {this.state.scoreSheet.dots}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Wickets</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "wicketsTaken" placeholder="Wickets Taken"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "wicketsTaken" placeholder="Wickets Taken"
+            value = {this.state.scoreSheet.wicketsTaken}/>
             </InputGroup>
         </Col>
     </Row>
@@ -342,21 +349,24 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Bowled or LBWs</InputGroup.Text>
-            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "bwldLbwCnb" placeholder="No. of bold and lbws"/>
+            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "bwldLbwCnb" placeholder="No. of bold and lbws"
+            value = {this.state.scoreSheet.bwldLbwCnb}/>
             </InputGroup>
         </Col>
     
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Maiden </InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "maidenOvers" placeholder="Maiden kitni daali ?"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "maidenOvers" placeholder="Maiden kitni daali ?"
+            value = {this.state.scoreSheet.maidenOvers}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Hatrick</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "hatricks" placeholder="Hatrick kitni li ?"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "hatricks" placeholder="Hatrick kitni li ?"
+            value = {this.state.scoreSheet.hatricks}/>
             </InputGroup>
         </Col>
 
@@ -367,21 +377,24 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Catches</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "catchesTaken" placeholder="Catches taken"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "catchesTaken" placeholder="Catches taken"
+            value = {this.state.scoreSheet.catchesTaken}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Direct hits</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "directHits" placeholder="Direct hits"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "directHits" placeholder="Direct hits"
+            value = {this.state.scoreSheet.directHits}/>
             </InputGroup>
         </Col>
 
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Stumpings</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "stumpings" placeholder="Stumpings"/>
+            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "stumpings" placeholder="Stumpings"
+            value = {this.state.scoreSheet.stumpingsss}/>
             </InputGroup>
         </Col>
 
