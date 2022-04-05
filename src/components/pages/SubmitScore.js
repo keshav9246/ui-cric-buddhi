@@ -152,13 +152,28 @@ class SubmitScore extends Component {
     }
 
     handleChange = (e) => {
-      console.log(e.target.id,e.target.value,"e")
+    let value = parseInt(e.target.value)
+      console.log(e.target.id,isNaN(value),"e")
+      console.log(typeof value, value)
 
-        const newScoreSheet = {...this.state.scoreSheet}
-        newScoreSheet[e.target.id] = e.target.value
-        this.state.scoreSheet = {...newScoreSheet}
+      const newScoreSheet = {...this.state.scoreSheet}
+
+      if(isNaN(value)){
+        newScoreSheet[e.target.id] = 0
+      
+}
+      else{
+        newScoreSheet[e.target.id] = value
+      }
+      
+        this.setState({
+            scoreSheet: {...newScoreSheet}
+        },()=>{
+            console.log("inside here 167")
+            console.log(this.state.scoreSheet);
+        });
        
-        console.log(this.state.scoreSheet);
+       
     }
     setShow = () => {
         this.setState( {
@@ -186,14 +201,37 @@ class SubmitScore extends Component {
           .then(response => response.text())
           .then((result) => this.setState({responseMessage:result, showToast:true}))
           .catch(error => this.state.responseMessage=error);
-        
-          event.target.reset();
+    
+          this.setState({
+            scoreSheet : {
+                scorePK :{
+                    gameNum:this.state.scoreSheet.scorePK.gameNum,
+                    playerName:""
+                },
+                runsScored: 0,
+                ballsFaced:0,
+                foursHit:0,
+                sixesHit:0,
+                isNotout:false,
+                ballsBowled:0,
+                runsConceded:0,
+                dots:0,
+                wicketsTaken:0,
+                bwldLbwCnb: 0,
+                maidenOvers:0,
+                hatricks:0,
+                catchesTaken:0,
+                directHits:0,
+                stumpings:0,
+            isMOM:false
+            }
+          });
           console.log(this.state)
           }
  
     render() {
 
-        let {team1Players, team2Players,scoreSheet, currentPlayerName} = this.state;
+        let {team1Players, team2Players, currentPlayerName} = this.state;
         const options = [];
         const players1 = [];
         const players2 = [];
@@ -265,7 +303,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
-            <FormControl type = "number" defaultValue = {scoreSheet.runsScored}
+            <FormControl  value = {this.state.scoreSheet.runsScored}
             onChange = {(e) => this.handleChange(e) } id = "runsScored" 
             placeholder="Runs Scored" />
             </InputGroup>
@@ -274,7 +312,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Balls</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "ballsFaced" placeholder="Balls faced"
+            <FormControl onChange = {(e) => this.handleChange(e)} id = "ballsFaced" placeholder="Balls faced"
             value = {this.state.scoreSheet.ballsFaced}/>
             </InputGroup>
         </Col>
@@ -284,7 +322,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Fours</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "foursHit"  placeholder="4s"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "foursHit"  placeholder="4s"
             value = {this.state.scoreSheet.foursHit}/>
             </InputGroup>
         </Col>
@@ -292,7 +330,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Sixes</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "sixesHit"  placeholder="6s"
+            <FormControl onChange = {(e) => this.handleChange(e)} id = "sixesHit"  placeholder="6s"
             value = {this.state.scoreSheet.sixesHit}/>
             </InputGroup>
         </Col>
@@ -315,7 +353,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Balls</InputGroup.Text>
-            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "ballsBowled" placeholder="Balls bowled"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "ballsBowled" placeholder="Balls bowled"
             value = {this.state.scoreSheet.ballsBowled}/>
             </InputGroup>
         </Col>
@@ -323,7 +361,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Runs</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "runsConceded" placeholder="Runs Conceeded"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "runsConceded" placeholder="Runs Conceeded"
             value = {this.state.scoreSheet.runsConceded}/>
             </InputGroup>
         </Col>
@@ -331,7 +369,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Dots</InputGroup.Text>
-            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "dots" placeholder="Dots bowled" 
+            <FormControl   onChange = {(e) => this.handleChange(e)} id = "dots" placeholder="Dots bowled" 
             value = {this.state.scoreSheet.dots}/>
             </InputGroup>
         </Col>
@@ -339,7 +377,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Wickets</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "wicketsTaken" placeholder="Wickets Taken"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "wicketsTaken" placeholder="Wickets Taken"
             value = {this.state.scoreSheet.wicketsTaken}/>
             </InputGroup>
         </Col>
@@ -351,7 +389,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Bowled or LBWs</InputGroup.Text>
-            <FormControl type = "number"  onChange = {(e) => this.handleChange(e)} id = "bwldLbwCnb" placeholder="No. of bold and lbws"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "bwldLbwCnb" placeholder="No. of bold and lbws"
             value = {this.state.scoreSheet.bwldLbwCnb}/>
             </InputGroup>
         </Col>
@@ -359,7 +397,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Maiden </InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "maidenOvers" placeholder="Maiden kitni daali ?"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "maidenOvers" placeholder="Maiden kitni daali ?"
             value = {this.state.scoreSheet.maidenOvers}/>
             </InputGroup>
         </Col>
@@ -367,7 +405,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Hatrick</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "hatricks" placeholder="Hatrick kitni li ?"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "hatricks" placeholder="Hatrick kitni li ?"
             value = {this.state.scoreSheet.hatricks}/>
             </InputGroup>
         </Col>
@@ -379,7 +417,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Catches</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "catchesTaken" placeholder="Catches taken"
+            <FormControl onChange = {(e) => this.handleChange(e)} id = "catchesTaken" placeholder="Catches taken"
             value = {this.state.scoreSheet.catchesTaken}/>
             </InputGroup>
         </Col>
@@ -387,7 +425,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Direct hits</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "directHits" placeholder="Direct hits"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "directHits" placeholder="Direct hits"
             value = {this.state.scoreSheet.directHits}/>
             </InputGroup>
         </Col>
@@ -395,7 +433,7 @@ class SubmitScore extends Component {
         <Col>
             <InputGroup className="mb-3">
             <InputGroup.Text id="inputGroup-sizing-default">Stumpings</InputGroup.Text>
-            <FormControl type = "number" onChange = {(e) => this.handleChange(e)} id = "stumpings" placeholder="Stumpings"
+            <FormControl  onChange = {(e) => this.handleChange(e)} id = "stumpings" placeholder="Stumpings"
             value = {this.state.scoreSheet.stumpings}/>
             </InputGroup>
         </Col>
