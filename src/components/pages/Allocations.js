@@ -124,7 +124,7 @@ class Allocations extends Component{
                         <Dropdown.Item onSelect={() => this.getAllocations()}> Sabke bc</Dropdown.Item>
                         <Dropdown.Item onSelect={() => this.getAllocationsByName("Aakash")}> Akash</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Devang")}>Devang</Dropdown.Item>
-                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Keyur")}>Keyur</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Aviral")}>Aviral</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Keshav")}>Keshav</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Parth")}>Parth</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Deepu")}>Deepu</Dropdown.Item>
@@ -134,6 +134,8 @@ class Allocations extends Component{
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Swapnil")}>Swapnil</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Dhruvik")}>Dhruvik</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Tanmay")}>Tanmay</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Mohit")}>Mohit</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Faraz")}>Faraz</Dropdown.Item>
                     </DropdownButton>
                     </th>
                     
