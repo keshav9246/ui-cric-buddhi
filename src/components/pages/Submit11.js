@@ -50,7 +50,7 @@ constructor(props){
           redirect: 'follow'
         };
         
-        fetch(`https://cric-fap.herokuapp.com/v1/iplt20/getPlayers?gameNum=${this.state.selectedGame}`, requestOptions)
+        fetch(`http://18.222.136.173:8080/v1/iplt20/getPlayers?gameNum=${this.state.selectedGame}`, requestOptions)
           .then(response => response.text())
           .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
             team1Players: result.team1Players,
@@ -141,7 +141,7 @@ constructor(props){
               },
             };
           
-          fetch(`https://cric-fap.herokuapp.com/v1/iplt20/submitPlaying11`, requestOptions)
+          fetch(`http://18.222.136.173:8080/v1/iplt20/submitPlaying11`, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result);})
             .catch(error => console.log('error', error));

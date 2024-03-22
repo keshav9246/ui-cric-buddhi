@@ -30,7 +30,7 @@ class DailyPlayerScores extends Component {
       redirect: 'follow'
     };
     
-    fetch("https://cric-fap.herokuapp.com/v1/iplt20/playerPoints", requestOptions)
+    fetch("http://18.222.136.173:8080/v1/iplt20/playerPoints", requestOptions)
       .then(response => response.text())
       .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({dailyPlayerScores: result})})
       .catch(error => console.log('error', error));

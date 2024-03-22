@@ -50,7 +50,7 @@ class Dashboard extends Component {
         headers: myHeaders
       };
       
-      fetch("https://cric-fap.herokuapp.com/v1/iplt20/allUsers", requestOptions)
+      fetch("http://18.222.136.173:8080/v1/iplt20/allUsers", requestOptions)
         .then(response => response.text())
         .then(result => this.setState({allUsers: result}))
         .catch(error => console.log('error', error));
@@ -65,11 +65,11 @@ class Dashboard extends Component {
 //       };
 //       const userId = this.state.currentUserEmail
 //       console.log(userId);
-//       await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
+//       await fetch(proxyurl+"http://18.222.136.173:8080/v1/iplt20/userDetails?userId="+userId, requestOptions)
 //         .then(response => response.text())
 //         .then(result => this.setState({currentUser: result}),() => console.log(this.state.currentUser))
 //         .catch(error => console.log('error', error));
-//     // let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId);
+//     // let response = await fetch(proxyurl+"http://18.222.136.173:8080/v1/iplt20/userDetails?userId="+userId);
 //     //     let result = await response.json();
 //     //     console.log(result)
 //     //     this.setState({
@@ -85,11 +85,11 @@ getCurrentUser =  ()=> {
       };
       const userId = this.state.currentUserEmail
       console.log(userId);
-       fetch("https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
+       fetch("http://18.222.136.173:8080/v1/iplt20/userDetails?userId="+userId, requestOptions)
         .then(response => response.text())
         .then(result => {result = JSON.parse(result); console.log(result); this.setState({currentUser: result})})
         .catch(error => console.log('error', error));
-    // let response = await fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions);
+    // let response = await fetch(proxyurl+"http://18.222.136.173:8080/v1/iplt20/userDetails?userId="+userId, requestOptions);
     //     let result = await response.json();
     //     console.log(result)
     //     this.setState({
@@ -109,12 +109,12 @@ getCurrentUser =  ()=> {
         headers: myHeaders
       };
       
-    //   fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions)
+    //   fetch(proxyurl+"http://18.222.136.173:8080/v1/iplt20/fantasyPointsTable", requestOptions)
     //     .then(response => response.text())
     //     .then(result => this.setState({fantasyPointsTable: result}))
     //     .catch(error => console.log('error', error));
 
-        let response = await fetch("https://cric-fap.herokuapp.com/v1/iplt20/fantasyPointsTable", requestOptions);
+        let response = await fetch("http://18.222.136.173:8080/v1/iplt20/fantasyPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
             console.log(element.userName, this.state.currentUserName)
@@ -143,12 +143,12 @@ getCurrentUser =  ()=> {
         headers: myHeaders
       };
       
-    //   fetch(proxyurl+"https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions)
+    //   fetch(proxyurl+"http://18.222.136.173:8080/v1/iplt20/predictionPointsTable", requestOptions)
     //     .then(response => response.text())
     //     .then(result => this.setState({predictionPointsTable: result}))
     //     .catch(error => console.log('error', error));
 
-        let response = await fetch("https://cric-fap.herokuapp.com/v1/iplt20/predictionPointsTable", requestOptions);
+        let response = await fetch("http://18.222.136.173:8080/v1/iplt20/predictionPointsTable", requestOptions);
         let result = await response.json();
         result.map((element,index) => {
             console.log(element.userName, this.state.currentUserName)
