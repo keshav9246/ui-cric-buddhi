@@ -31,7 +31,7 @@ class Allocations extends Component{
             redirect: 'follow'
           };
           
-          fetch( "http://18.222.136.173:8080/v1/iplt20/allocations", requestOptions)
+          fetch( "https://18.219.229.84/v1/iplt20/allocations", requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -46,7 +46,7 @@ class Allocations extends Component{
             method: 'GET',
             redirect: 'follow'
         };
-          fetch( "http://18.222.136.173:8080/v1/iplt20/allocationsByName?userId="+name, requestOptions)
+          fetch( "https://18.219.229.84/v1/iplt20/allocationsByName?userId="+name, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -59,7 +59,7 @@ class Allocations extends Component{
             method: 'GET',
             redirect: 'follow'
         };
-          fetch( "http://18.222.136.173:8080/v1/iplt20/allocationsByGame?gameNum="+game, requestOptions)
+          fetch( "https://18.219.229.84/v1/iplt20/allocationsByGame?gameNum="+game, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({

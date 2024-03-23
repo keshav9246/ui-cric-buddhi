@@ -26,7 +26,7 @@ class Scores extends Component{
             redirect: 'follow'
           };
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
-          fetch("http://18.222.136.173:8080/v1/iplt20/playerScores", requestOptions)
+          fetch("https://18.219.229.84/v1/iplt20/playerScores", requestOptions)
             .then(response => response.text())
             .then(result => { result = JSON.parse(result); this.setState({playerScores: result})})
             .catch(error => console.log('error', error));

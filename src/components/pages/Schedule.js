@@ -30,7 +30,7 @@ class Schedule extends Component {
       redirect: 'follow'
     };
     
-    fetch("http://18.222.136.173:8080/v1/iplt20/schedule", requestOptions)
+    fetch("https://18.219.229.84/v1/iplt20/schedule", requestOptions)
       .then(response => response.text())
       .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({games: result})})
       .catch(error => console.log('error', error));
