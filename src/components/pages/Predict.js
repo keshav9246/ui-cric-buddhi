@@ -37,7 +37,7 @@ class Predict extends Component {
     
     // getGamesToday = () => {
     //     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    //     const url = "https://18.219.229.84/v1/iplt20/gamesToday";
+    //     const url = "https://18.219.229.84:443/v1/iplt20/gamesToday";
         
         
     
@@ -61,7 +61,7 @@ class Predict extends Component {
           headers: myHeaders
         };
         
-        fetch("https://18.219.229.84/v1/iplt20/allUsers", requestOptions)
+        fetch("https://18.219.229.84:443/v1/iplt20/allUsers", requestOptions)
           .then(response => response.text())
           .then(result => {result = JSON.parse(result); this.setState({allUsers: result})})
           .catch(error => console.log('error', error));
@@ -69,7 +69,7 @@ class Predict extends Component {
 
     getGamesToday = async  () => {
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-         const url = "https://18.219.229.84/v1/iplt20/gamesToday";
+         const url = "https://18.219.229.84:443/v1/iplt20/gamesToday";
 
          var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -115,7 +115,7 @@ myHeaders.append("Access-Control-Allow-Origin", "*");
 
 
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-         let url = "https://18.219.229.84/v1/iplt20/submitPrediction";
+         let url = "https://18.219.229.84:443/v1/iplt20/submitPrediction";
          fetch(url, {
           method: 'POST', // or 'PUT'
           headers: {
@@ -156,7 +156,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-let url = "https://18.219.229.84/v1/iplt20/submitPrediction";
+let url = "https://18.219.229.84:443/v1/iplt20/submitPrediction";
 
 fetch(url, requestOptions)
   .then(response => response.text())

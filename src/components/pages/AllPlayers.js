@@ -28,7 +28,7 @@ class AllPlayers extends Component{
           
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-          fetch("https://18.219.229.84/v1/iplt20/fetchPlayers", requestOptions)
+          fetch("https://18.219.229.84:443/v1/iplt20/fetchPlayers", requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
                 allUsers: result
