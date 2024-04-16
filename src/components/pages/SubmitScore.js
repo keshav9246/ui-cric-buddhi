@@ -139,7 +139,7 @@ class SubmitScore extends Component {
             redirect: 'follow'
         };
 
-        fetch(`http://18.222.136.173:8080/v1/iplt20/getPlaying11?gameNum=${this.state.selectedGame}`, requestOptions)
+        fetch(`https://18.219.229.84:443/v1/iplt20/getPlaying11?gameNum=${this.state.selectedGame}`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 result = JSON.parse(result); console.log(typeof result); this.setState({
@@ -197,7 +197,7 @@ class SubmitScore extends Component {
               },
             };
           
-          fetch(`http://18.222.136.173:8080/v1/iplt20/submitScore`, requestOptions)
+          fetch(`https://18.219.229.84:443/v1/iplt20/submitScore`, requestOptions)
           .then(response => response.text())
           .then((result) => this.setState({responseMessage:result, showToast:true}))
           .catch(error => this.state.responseMessage=error);
