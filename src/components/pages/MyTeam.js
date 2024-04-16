@@ -30,7 +30,7 @@ class MyTeam extends Component {
 
 //   getGamesToday = async  () => {
 //     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-//      const url = "https://18.219.229.84:443/v1/iplt20/gamesToday";
+//      const url = "https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/gamesToday";
 
 //      var myHeaders = new Headers();
 // myHeaders.append("Content-Type", "application/json");
@@ -73,11 +73,11 @@ class MyTeam extends Component {
 //       };
 //       const userId = this.state.currentUserEmail
 //       console.log(userId);
-//       await fetch(proxyurl+"https://18.219.229.84:443/v1/iplt20/userDetails?userId="+userId, requestOptions)
+//       await fetch(proxyurl+"https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
 //         .then(response => response.text())
 //         .then(result => this.setState({currentUser: result}),() => console.log(this.state.currentUser))
 //         .catch(error => console.log('error', error));
-//     // let response = await fetch(proxyurl+"https://18.219.229.84:443/v1/iplt20/userDetails?userId="+userId);
+//     // let response = await fetch(proxyurl+"https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/userDetails?userId="+userId);
 //     //     let result = await response.json();
 //     //     console.log(result)
 //     //     this.setState({
@@ -94,11 +94,11 @@ class MyTeam extends Component {
       };
       const userId = this.state.currentUserEmail
       console.log(userId);
-       fetch("https://18.219.229.84:443/v1/iplt20/userDetails?userId="+userId, requestOptions)
+       fetch("https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions)
         .then(response => response.text())
         .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({currentUser: result})})
         .catch(error => console.log('error', error));
-    // let response = await fetch(proxyurl+"https://18.219.229.84:443/v1/iplt20/userDetails?userId="+userId, requestOptions);
+    // let response = await fetch(proxyurl+"https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/userDetails?userId="+userId, requestOptions);
     //     let result = await response.json();
     //     console.log(result)
     //     this.setState({

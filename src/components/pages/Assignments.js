@@ -30,7 +30,7 @@ class Assignments extends Component{
             redirect: 'follow'
           };
           
-          fetch( "https://18.219.229.84:443/v1/iplt20/assignments", requestOptions)
+          fetch( "https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/assignments", requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -45,7 +45,7 @@ class Assignments extends Component{
             method: 'GET',
             redirect: 'follow'
         };
-          fetch( "https://18.219.229.84:443/v1/iplt20/allocationsByName?userId="+name, requestOptions)
+          fetch( "https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/allocationsByName?userId="+name, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -58,7 +58,7 @@ class Assignments extends Component{
             method: 'GET',
             redirect: 'follow'
         };
-          fetch( "https://18.219.229.84:443/v1/iplt20/getAssignments?gameNum="+game, requestOptions)
+          fetch( "https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/getAssignments?gameNum="+game, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({

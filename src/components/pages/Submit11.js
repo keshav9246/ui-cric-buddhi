@@ -50,7 +50,7 @@ constructor(props){
           redirect: 'follow'
         };
         
-        fetch(`https://18.219.229.84:443/v1/iplt20/getPlayers?gameNum=${this.state.selectedGame}`, requestOptions)
+        fetch(`https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/getPlayers?gameNum=${this.state.selectedGame}`, requestOptions)
           .then(response => response.text())
           .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
             team1Players: result.team1Players,
@@ -141,7 +141,7 @@ constructor(props){
               },
             };
           
-          fetch(`https://18.219.229.84:443/v1/iplt20/submitPlaying11`, requestOptions)
+          fetch(`https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/submitPlaying11`, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result);})
             .catch(error => console.log('error', error));
