@@ -19,6 +19,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "engines": {
+    "node": "21.7.1"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

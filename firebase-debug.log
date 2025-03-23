@@ -41,3 +41,36 @@ You're about to initialize a Firebase project in this directory:
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
 [error] 
 [error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2025-03-23T22:54:03.554Z] ----------------------------------------------------------------------
+[debug] [2025-03-23T22:54:03.556Z] Command:       /usr/local/bin/firebase /Users/k0r013i/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2025-03-23T22:54:03.556Z] CLI Version:   13.5.2
+[debug] [2025-03-23T22:54:03.557Z] Platform:      darwin
+[debug] [2025-03-23T22:54:03.557Z] Node Version:  v18.5.0
+[debug] [2025-03-23T22:54:03.562Z] Time:          Sun Mar 23 2025 17:54:03 GMT-0500 (Central Daylight Time)
+[debug] [2025-03-23T22:54:03.562Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-23T22:54:03.672Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-23T22:54:03.674Z] > authorizing via signed-in user (ksrajput.basic@gmail.com)
+[debug] [2025-03-23T22:54:03.675Z] [iam] checking project ipl2020-ui for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-03-23T22:54:03.677Z] > refreshing access token with scopes: []
+[debug] [2025-03-23T22:54:03.679Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-03-23T22:54:03.680Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-23T22:54:03.931Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-03-23T22:54:03.934Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-23T22:54:03.935Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ipl2020-ui:testIamPermissions [none]
+[debug] [2025-03-23T22:54:03.936Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ipl2020-ui:testIamPermissions x-goog-quota-user=projects/ipl2020-ui
+[debug] [2025-03-23T22:54:03.936Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ipl2020-ui:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-03-23T22:54:04.131Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ipl2020-ui:testIamPermissions 401
+[debug] [2025-03-23T22:54:04.132Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ipl2020-ui:testIamPermissions {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"ACCESS_TOKEN_TYPE_UNSUPPORTED","metadata":{"method":"google.cloudresourcemanager.v1.Projects.TestIamPermissions","service":"cloudresourcemanager.googleapis.com"}}]}}
+[debug] [2025-03-23T22:54:04.135Z] [iam] error while checking permissions, command may fail: FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2025-03-23T22:54:04.137Z] > refreshing access token with scopes: []
+[debug] [2025-03-23T22:54:04.138Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-03-23T22:54:04.139Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-23T22:54:04.285Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-03-23T22:54:04.286Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-23T22:54:04.288Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ipl2020-ui [none]
+[debug] [2025-03-23T22:54:04.517Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ipl2020-ui 401
+[debug] [2025-03-23T22:54:04.518Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ipl2020-ui {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2025-03-23T22:54:04.518Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
