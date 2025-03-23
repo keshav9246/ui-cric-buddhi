@@ -30,7 +30,7 @@ class DailyPlayerScores extends Component {
       redirect: 'follow'
     };
     
-    fetch("https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/playerPoints", requestOptions)
+    fetch("https://crickshetra-api-706bf9ac0811.herokuapp.com/v1/iplt20/playerPoints", requestOptions)
       .then(response => response.text())
       .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({dailyPlayerScores: result})})
       .catch(error => console.log('error', error));

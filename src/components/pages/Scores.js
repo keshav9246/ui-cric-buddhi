@@ -26,7 +26,7 @@ class Scores extends Component{
             redirect: 'follow'
           };
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
-          fetch("https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/playerScores", requestOptions)
+          fetch("https://crickshetra-api-706bf9ac0811.herokuapp.com/v1/iplt20/playerScores", requestOptions)
             .then(response => response.text())
             .then(result => { result = JSON.parse(result); this.setState({playerScores: result})})
             .catch(error => console.log('error', error));

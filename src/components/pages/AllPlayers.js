@@ -28,7 +28,7 @@ class AllPlayers extends Component{
           
           const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
-          fetch("https://ws-crickshetra-d4cea40c595e.herokuapp.com/v1/iplt20/fetchPlayers", requestOptions)
+          fetch("https://crickshetra-api-706bf9ac0811.herokuapp.com/v1/iplt20/fetchPlayers", requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); this.setState({
                 allUsers: result

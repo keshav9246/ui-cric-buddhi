@@ -31,7 +31,7 @@ export default withAuth(
     };
 
     onError = err => {
-      console.log('error logging in', err);
+      console.log('error logging in', err);``
     };
 
     render() {
