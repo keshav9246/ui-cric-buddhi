@@ -241,8 +241,8 @@ fetch(url, requestOptions)
                     return <tr>
                         <td>{index+1}</td>
                         <td>{element.userName}</td>
-                        {/* <td>{element.powerPlayer.player_name}</td>
-                        <td>{element.miniPowerPlayer.player_name}</td> */}
+                        <td>{element.powerPlayer.player_name}</td>
+                        <td>{element.miniPowerPlayer.player_name}</td>
                         <td>{element.qualifyingTeams}</td>
                         </tr>
                     })}

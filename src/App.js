@@ -33,8 +33,8 @@ class App extends Component {
     return (
       <Router>
         <Security
-          issuer="https://dev-753244.okta.com/oauth2/default"
-          client_id="0oawhx4eolDyyKD0z4x6"
+          issuer="https://trial-2191727.okta.com/oauth2/default"
+          client_id="0oapxwbcv4uQ0eDhb697"
           redirect_uri={window.location.origin + '/implicit/callback'}
           onAuthRequired={onAuthRequired}
         >
@@ -47,7 +47,7 @@ class App extends Component {
               <Route
                 path="/login"
                 render={() => (
-                  <Login baseUrl="https://dev-753244.okta.com" />
+                  <Login baseUrl="https://trial-2191727.okta.com" />
                 )}
               />
               <SecureRoute path="/predict" exact={true} component={Predict} />

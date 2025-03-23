@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -31,7 +31,7 @@ class Allocations extends Component{
             redirect: 'follow'
           };
           
-          fetch( "https://18.219.229.84:443/v1/iplt20/allocations", requestOptions)
+          fetch( "https://crickshetra-api-706bf9ac0811.herokuapp.com/v1/iplt20/allocations", requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -46,7 +46,7 @@ class Allocations extends Component{
             method: 'GET',
             redirect: 'follow'
         };
-          fetch( "https://18.219.229.84:443/v1/iplt20/allocationsByName?userId="+name, requestOptions)
+          fetch( "https://crickshetra-api-706bf9ac0811.herokuapp.com/v1/iplt20/allocationsByName?userId="+name, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -59,7 +59,7 @@ class Allocations extends Component{
             method: 'GET',
             redirect: 'follow'
         };
-          fetch( "https://18.219.229.84:443/v1/iplt20/allocationsByGame?gameNum="+game, requestOptions)
+          fetch( "https://crickshetra-api-706bf9ac0811.herokuapp.com/v1/iplt20/allocationsByGame?gameNum="+game, requestOptions)
             .then(response => response.text())
             .then(result => {result = JSON.parse(result); console.log(typeof result); 
                 this.setState({
@@ -163,18 +163,20 @@ class Allocations extends Component{
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Devang")}>Devang</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Aviral")}>Aviral</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Keshav")}>Keshav</Dropdown.Item>
-                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Parth")}>Parth</Dropdown.Item>
-                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Deepu")}>Deepu</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Mohit")}>Mohit</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Gautam")}>Gautam</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Pushkar")}>Pushkar</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sid")}>Sid</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sachin")}>Sachin</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Swapnil")}>Swapnil</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Kunal")}>Kunal</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Tanmay")}>Tanmay</Dropdown.Item>
-                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Kishan")}>Kishan</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Lakhan")}>Lakhan</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Faraz")}>Faraz</Dropdown.Item>
-                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Karteek")}>Karteek</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Nikhil")}>Nikhil</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sehran")}>Sehran</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Ved")}>Ved</Dropdown.Item>
+             
                     </DropdownButton>
                     </th>
                     
