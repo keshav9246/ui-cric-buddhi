@@ -164,7 +164,7 @@ class Allocations extends Component{
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Aviral")}>Aviral</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Keshav")}>Keshav</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Mohit")}>Mohit</Dropdown.Item>
-                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Gautam")}>Gautam</Dropdown.Item>
+                        <Dropdown.Item onSelect={() =>this.getAllocationsByName("Gaurav")}>Gaurav</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Pushkar")}>Pushkar</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sid")}>Sid</Dropdown.Item>
                         <Dropdown.Item onSelect={() =>this.getAllocationsByName("Sachin")}>Sachin</Dropdown.Item>
