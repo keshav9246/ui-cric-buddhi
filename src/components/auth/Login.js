@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import SignInWidget from './SignInWidget';
-import { withAuth } from '@okta/okta-react';
+import { withOktaAuth } from '@okta/okta-react';
 
-export default withAuth(
+export default withOktaAuth(
   class Login extends Component {
     constructor(props) {
       super(props);

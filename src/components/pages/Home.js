@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { withAuth } from '@okta/okta-react';
+import { withOktaAuth } from '@okta/okta-react';
 
-export default withAuth(
+export default withOktaAuth(
   class Home extends Component {
     state = { authenticated: null };
 
